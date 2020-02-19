@@ -36,13 +36,13 @@ const onSuccessToken = response => {
 // API request for getting pet adoption listings
 function getPets(){
   $.ajax({
-    url: "https://api.petfinder.com/v2/animals?type=dog&type=cat",
+    url: "https://api.petfinder.com/v2/animals?status=adoptable&type=dog&type=cat",
     method: 'GET',
     headers: {
       'Authorization': user.token.token_type + ' ' + user.token.access_token,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    data: body,
+    data: requestBody,
     dataType: 'json',
     processData: false,
     success: onSuccessPets,
