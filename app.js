@@ -52,9 +52,21 @@ function getPets(){
 // After receiving the pet adoption listings.
 const onSuccessPets = response => {
   user.pets = response;
-  console.log(user.pets);
+  console.log(response);
+  filterPhotos();
 };
 
+// This filters the response, removing any entries that do not have photos.
+function filterPhotos () {
+  let array = [];
+  for (i = 0; i < user.pets.animals.length; i++){
+    if (user.pets.animals[i].photos.length !== 0){
+      array.push(user.pets.animals[i])
+    }
+  }
+  user.pets.animals = array
+  console.log(user.pets)
+}
 /* --------------- Handles unsuccessful Ajax Request */
 const onError = (error, errorText, errorCode) => {
   console.log({ error })
