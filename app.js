@@ -1,8 +1,8 @@
-console.log('got some js')
+console.log('adopt some pets!')
 
 let user = {
   apiKey: "bbbwM5cNHrI9qH2vnqNnzTd828VIPtgBb2o7g2AgNihqnslFm1",
-  secret: "59vvv4E0djZGzSKLzFDRTtEbAB5kSwA4GjTvPM22"
+  secret: "59vvv4E0djZGzSKLzFDRTtEbAB5kSwA4GjTvPM22",
 }
 
 let body = 'grant_type=client_credentials&client_id=' + user.apiKey + '&client_secret=' + user.secret
@@ -22,6 +22,12 @@ function getToken() {
   });
 }
 
+const onSuccessToken = response => {
+  user.token = response;
+  console.log(user.token);
+  getPets();
+};
+
 function getPets(){
   $.ajax({
     url: "https://api.petfinder.com/v2/animals?type=dog&type=cat",
@@ -38,15 +44,9 @@ function getPets(){
   });
 }
 
-const onSuccessToken = response => {
-  user.token = response;
-  console.log(response);
-  getPets();
-};
-
 const onSuccessPets = response => {
   user.pets = response;
-  console.log(response);
+  console.log(user.pets);
 };
 
 /* --- Handles unsuccessful Ajax Request */
