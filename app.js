@@ -13,6 +13,13 @@ let requestBody = 'grant_type=client_credentials&client_id=' + user.apiKey + '&c
 function getToken() {
   $.ajax({
     url: "https://api.petfinder.com/v2/oauth2/token",
+    //what the error for the token request looks like:
+    // {
+    //   type: "https://httpstatus.es/401",
+    //   status: 401,
+    //   title: "Unauthorized",
+    //   detail: "Access token invalid or expired"
+    //   }
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
