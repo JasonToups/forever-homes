@@ -12,7 +12,7 @@ h2 {
   font-size: 40;
   font-family: 'Suez One', serif;
   margin: 0;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 #list {
@@ -20,13 +20,43 @@ h2 {
   width: 50%; */
 }
 
-#post-name {
-  margin-left: 10px;
-}
-
 /* TODO create an *active* version of this to eliminate the border radius when the post detail view is active */
-#post-header{
+.post-content{
   background-color: white;
   width: 450px;
   border-radius: 0px 0px 20px 20px;
+  margin-bottom: 15px;
+}
+
+.post-name {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* TODO create an *hidden* version of this by default */
+/* TODO create an *active* version of this by to be used by the click event on the post. */
+.post-detail {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  height: 0;
+  /* transition: transform linear 3s;
+  transform: translateY(-100%); */
+}
+
+.show {
+  /* transform: translateY(max-content); */
+  height: max-content;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.adopt {
+  border-radius: 20px;
+  padding: 10px 10px;
 }
