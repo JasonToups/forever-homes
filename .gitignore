@@ -2,7 +2,7 @@
 # Edit at https://www.gitignore.io/?templates=django
 
 .DS_Store
-.env
+.env/
 
 
 ### Django ###
