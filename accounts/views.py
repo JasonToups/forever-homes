@@ -14,10 +14,10 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('login')
     else:
         form = UserCreationForm()
-        return render(request, 'register.html', {'form':form})
+        return render(request, 'register.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
@@ -36,4 +36,4 @@ def login_view(request):
 
 def logout_view(request):
     auth.logout(request)
-    return redirect('index')
+    return redirect('main_feed')
