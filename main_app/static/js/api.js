@@ -55,7 +55,7 @@ function getPets(){
     success: onSuccessPets,
     // error: onError
     error: onErrorPets
-    //onErrorPets-  duplicate function, to create a condition to look for the status.  find status, then make the token request again.  
+    //onErrorPets-  duplicate function, to create a condition to look for the status.  find status of zero( 0 ), then make the token request again.  
 
   });
 }
@@ -76,11 +76,6 @@ const onErrorPets = response => {
   }
 
 }
-
-
-
-
-
 
 // This filters the response, removing any entries that do not have photos.
 function filterPhotos () {
