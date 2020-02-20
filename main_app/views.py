@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+# taking a web request and returns a web response.
+# fetch objects from database
+# modify those objects
+# render forms
+# return HTML
+
+
 def index(request):
     return HttpResponse('<h1>Homepage!</h1>')
 
