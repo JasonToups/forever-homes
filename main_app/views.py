@@ -10,8 +10,9 @@ def intro(request):
 def create_profile(request):
     return HttpResponse('<h1>Create Profile!</h1>')
 
+# TODO add the redirect to the main_feed.html
 def main_feed(request):
-    return HttpResponse('<h1>Main Feed!</h1>')
+    return render(request, 'main_feed.html')
 
 def feed_search(request):
     return HttpResponse('<h1>Main Feed Search!</h1>')
