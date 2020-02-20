@@ -14,6 +14,7 @@ nav {
 
 .logo {
   width: 40px;
+  fill: blueviolet;
 }
 
 h1 {
@@ -31,12 +32,6 @@ h2 {
   margin-bottom: 5px;
 }
 
-#list {
-  /* margin: auto;
-  width: 50%; */
-}
-
-/* TODO create an *active* version of this to eliminate the border radius when the post detail view is active */
 .post-content{
   background-color: white;
   width: 450px;
@@ -48,20 +43,21 @@ h2 {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* TODO create an *hidden* version of this by default */
-/* TODO create an *active* version of this by to be used by the click event on the post. */
+
 .post-detail {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   overflow: hidden;
   height: 0;
-  /* transition: transform linear 3s;
-  transform: translateY(-100%); */
+}
+
+.pet-detail{
+  margin: 5 5 5 5;
+  font-family: 'Overpass', sans-serif;
 }
 
 .show {
-  /* transform: translateY(max-content); */
   height: max-content;
 }
 
@@ -70,9 +66,13 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
 }
 
 .adopt {
   border-radius: 20px;
-  padding: 10px 10px;
+  padding: 10px 20px;
+  background-color: wheat;
+  font-family: 'Suez One', serif;
+  font-size: 20;
 }
