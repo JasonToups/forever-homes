@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import auth
 
 
 def index(request):
@@ -28,7 +29,11 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('/')
+                    return redirect('main_feed')
     else:
         form = LoginForm()
         return render(request, 'login.html', {'form':form})
+
+def logout_view(request):
+    auth.logout(request)
+    return redirect('index')
