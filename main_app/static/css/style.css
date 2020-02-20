@@ -1,1 +1,14 @@
-body {background-color: cornflowerblue}
+body {
+  background-color: lightgray;
+  font-family: 'Suez One', serif;
+}
+
+img {
+  width: 450px;
+  border-radius: 20px;
+}
+
+h2 {
+  font-size: 40;
+  font-family: 'Suez One', serif;
+}
