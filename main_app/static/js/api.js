@@ -75,7 +75,6 @@ function filterPhotos () {
   createFeed();
 }
 
-// TODO refactor the template to grab all of the detail info we need for the pets, and put it in a div that will be hidden until the image is clicked, and then it will show.
 function createFeed () {
   for (i = 0; i < user.pets.animals.length; i++){
     let name = user.pets.animals[i].name;
@@ -90,7 +89,7 @@ function createFeed () {
     const template = `
     <div class="post">
       <div class="post-image">
-        <img src="${image}"/>
+        <img class="pet-picture" src="${image}"/>
       </div>
       <div class = post-content>
         <div class="post-header">
