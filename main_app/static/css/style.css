@@ -12,12 +12,7 @@ body {
   font-family: 'Suez One', serif;
 }
 
-.pet-picture {
-  width: var(--content-width);
-  border-radius: 20px 20px 0px 0px;
-}
-
-
+/* ----------- Nav Menu ----------- */
 /* Style the navigation menu */
 .topnav {
   overflow: hidden;
@@ -55,7 +50,6 @@ body {
 
 /* Add a grey background color on mouse-over */
 .topnav a:hover {
-  /* background: hsla(360, 0, 100%, .7); */
   color: black;
 }
 
@@ -64,10 +58,6 @@ body {
   background-color: cadetblue;
   color: white;
 }
-
-/* nav {
-  padding-bottom: 10px;
-} */
 
 .logo {
   width: 55px;
@@ -83,6 +73,11 @@ h1 {
   font-size: 20px;
   text-decoration: none;
   width: 100%;
+}
+/* -------------- Pet Feed  -------------- */
+.pet-picture {
+  width: var(--content-width);
+  border-radius: 20px 20px 0px 0px;
 }
 
 h2 {
