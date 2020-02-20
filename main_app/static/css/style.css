@@ -1,6 +1,11 @@
 :root {
   --content-width: 350px;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background-image: linear-gradient(lightgrey, rgb(150, 150, 150));
@@ -12,21 +17,72 @@ body {
   border-radius: 20px 20px 0px 0px;
 }
 
-nav {
-  padding-bottom: 10px;
+
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  border-radius: 0px 0px 20px 20px;
 }
 
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+.menu a {
+  font-size: 17px;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: transparent;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  /* background: hsla(360, 0, 100%, .7); */
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: cadetblue;
+  color: white;
+}
+
+/* nav {
+  padding-bottom: 10px;
+} */
+
 .logo {
-  width: 40px;
-  fill: blueviolet;
+  width: 55px;
+  padding-left: 10px;
 }
 
 h1 {
   margin-bottom: 0px;
+  display: flex;
 }
 
 .header {
+  font-size: 20px;
   text-decoration: none;
+  width: 100%;
 }
 
 h2 {
