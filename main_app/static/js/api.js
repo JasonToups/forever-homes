@@ -28,15 +28,7 @@ function getToken() {
 // After receiving a token, it is saved in the User object.
 // Then we use the token to request the array of adoption listings
 const onSuccessToken = response => {
-
-  //WORKING line: 
   user.token = response;
-  
-  //Testing
-  // user.token = response + "1";
-  // console.log('Adding character to token')
-
-  // console.log(user.token);
   getPets();
 };
 
@@ -53,28 +45,21 @@ function getPets(){
     dataType: 'json',
     processData: false,
     success: onSuccessPets,
-    // error: onError
     error: onErrorPets
-    //onErrorPets-  duplicate function, to create a condition to look for the status.  find status of zero( 0 ), then make the token request again.  
-
   });
 }
 // After receiving the pet adoption listings.
 const onSuccessPets = response => {
   user.pets = response;
-  console.log(response);
   filterPhotos();
 };
 
 const onErrorPets = response => {
   console.log(response)
   if (response.status === 0){
-
     console.log('Status 0: Failured to get a new token, but no problem!  Retrieving new token.');
-
     getToken()
   }
-
 }
 
 // This filters the response, removing any entries that do not have photos.
