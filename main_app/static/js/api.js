@@ -78,9 +78,7 @@ function filterPhotos () {
 function createFeed () {
   for (i = 0; i < user.pets.animals.length; i++){
     let petName = user.pets.animals[i].name;
-    console.log(user.pets.animals[i].name)
     let petImage = user.pets.animals[i].photos[0].large;
-    console.log(petImage)
     const template = `
     <div id="post">
       <div id="post-image">
@@ -97,6 +95,49 @@ function createFeed () {
     `;
     $('#list').append(template);
   }
+  startClickListener()
+}
+
+// TODO BUG - this is only registering one click for the first picture.
+function startClickListener() {
+  $(document).ready(function(){
+    console.log('listening for clicks')
+    $("#post").click(function(event){
+      // 'clicked', user.petUrl = $(this.innerHTML);
+      user.petUrl = $('#post img').attr('src');
+      console.log(user.petUrl);
+      getPetObject(user.pets.animals, user.petUrl)
+    });
+  });
+}
+
+function getPetObject(object, value){
+  console.log('looking for pet object');
+  for (var i = 0; i < object.length; i++){
+    if (object[i].photos[0].large === value){
+      user.selectedDog = object[i]
+    }
+  }
+  createDetail()
+}
+
+// TODO this is just collecting data at this point. I need to append this data to the DOM, but I first need to find the DOM element that was originally selected. I might just go back and save it on click, then reference it here.
+function createDetail(){
+  console.log(user.selectedDog);
+  console.log(user.selectedDog.species);
+  let species = user.selectedDog.species;
+  console.log(user.selectedDog.breeds.primary);
+  let primary = user.selectedDog.breeds.primary;
+  console.log(user.selectedDog.breeds.secondary);
+  let secondary = user.selectedDog.breeds.secondary;
+  console.log(user.selectedDog.age);
+  let age = user.selectedDog.age;
+  console.log(user.selectedDog.gender);
+  let gender = user.selectedDog.gender;
+  console.log(user.selectedDog.description);
+  let description = user.selectedDog.description;
+  console.log(user.selectedDog.url);
+  let url = user.selectedDog.url;
 }
 
 /* --------------- Handles unsuccessful Ajax Request */

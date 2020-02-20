@@ -5,10 +5,28 @@ body {
 
 img {
   width: 450px;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 h2 {
   font-size: 40;
   font-family: 'Suez One', serif;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+#list {
+  /* margin: auto;
+  width: 50%; */
+}
+
+#post-name {
+  margin-left: 10px;
+}
+
+/* TODO create an *active* version of this to eliminate the border radius when the post detail view is active */
+#post-header{
+  background-color: white;
+  width: 450px;
+  border-radius: 0px 0px 20px 20px;
 }
