@@ -28,22 +28,14 @@ function getToken() {
 // After receiving a token, it is saved in the User object.
 // Then we use the token to request the array of adoption listings
 const onSuccessToken = response => {
-
-  //WORKING line: 
   user.token = response;
-  
-  //Testing
-  // user.token = response + "1";
-  // console.log('Adding character to token')
-
-  // console.log(user.token);
   getPets();
 };
 
 // API request for getting pet adoption listings
 function getPets(){
   $.ajax({
-    url: "https://api.petfinder.com/v2/animals?status=adoptable&type=dog&type=cat&limit=100",
+    url: "https://api.petfinder.com/v2/animals?status=adoptable&type=dog&limit=100",
     method: 'GET',
     headers: {
       'Authorization': user.token.token_type + ' ' + user.token.access_token,
@@ -53,28 +45,21 @@ function getPets(){
     dataType: 'json',
     processData: false,
     success: onSuccessPets,
-    // error: onError
     error: onErrorPets
-    //onErrorPets-  duplicate function, to create a condition to look for the status.  find status of zero( 0 ), then make the token request again.  
-
   });
 }
 // After receiving the pet adoption listings.
 const onSuccessPets = response => {
   user.pets = response;
-  console.log(response);
   filterPhotos();
 };
 
 const onErrorPets = response => {
   console.log(response)
   if (response.status === 0){
-
     console.log('Status 0: Failured to get a new token, but no problem!  Retrieving new token.');
-
     getToken()
   }
-
 }
 
 // This filters the response, removing any entries that do not have photos.
@@ -85,9 +70,35 @@ function filterPhotos () {
       array.push(user.pets.animals[i])
     }
   }
-  user.pets.animals = array
-  console.log(user.pets)
+  user.pets.animals = array;
+  console.log(user.pets);
+  createFeed();
 }
+
+function createFeed () {
+  for (i = 0; i < user.pets.animals.length; i++){
+    let petName = user.pets.animals[i].name;
+    console.log(user.pets.animals[i].name)
+    let petImage = user.pets.animals[i].photos[0].large;
+    console.log(petImage)
+    const template = `
+    <div id="post">
+      <div id="post-image">
+        <img src="${petImage}"/>
+      </div>
+      <div id="post-header">
+        <div id="post-name">
+          <h2>${petName}</h2>
+        </div>
+        <div id="post-favorite>
+        </div>
+      </div>
+    </div>
+    `;
+    $('#list').append(template);
+  }
+}
+
 /* --------------- Handles unsuccessful Ajax Request */
 const onError = (error, errorText, errorCode) => {
   console.log({ error })
