@@ -77,26 +77,109 @@ function filterPhotos () {
 
 function createFeed () {
   for (i = 0; i < user.pets.animals.length; i++){
-    let petName = user.pets.animals[i].name;
-    console.log(user.pets.animals[i].name)
-    let petImage = user.pets.animals[i].photos[0].large;
-    console.log(petImage)
+    let name = user.pets.animals[i].name;
+    let image = user.pets.animals[i].photos[0].large;
+    let species = user.pets.animals[i].species;
+    let breedPrimary = user.pets.animals[i].breeds.primary;
+    let breedSecondary = user.pets.animals[i].breeds.secondary;
+    let age = user.pets.animals[i].age;
+    let gender = user.pets.animals[i].gender;
+    let description = user.pets.animals[i].description;
+    let url = user.pets.animals[i].url;
     const template = `
-    <div id="post">
-      <div id="post-image">
-        <img src="${petImage}"/>
+    <div class="post">
+      <div class="post-image">
+        <img class="pet-picture" src="${image}"/>
       </div>
-      <div id="post-header">
-        <div id="post-name">
-          <h2>${petName}</h2>
+      <div class = post-content>
+        <div class="post-header">
+          <div class="post-name">
+            <h2>${name}</h2>
+          </div>
+          <div class="post-favorite">
+          </div>
         </div>
-        <div id="post-favorite>
+        <div class="post-detail">
+          <p>Type: ${species}</p>
+          <p>Breed Primary: ${breedPrimary}</p>
+          <p>Breed Secondary: ${breedSecondary}</p>
+          <p>Age: ${age}</p>
+          <p>Gender: ${gender}</p>
+          <p>Description: ${description}</p>
+          <div class="button">
+            <a href="${url}"><button class="adopt">Adopt Me</button></a>
+          </div>
         </div>
       </div>
     </div>
     `;
     $('#list').append(template);
   }
+  startClickListener()
+}
+
+function createDetail(){
+  console.log(user.selectedDog);
+  console.log(user.selectedDog.species);
+  let species = user.selectedDog.species;
+  console.log(user.selectedDog.breeds.primary);
+  let primary = user.selectedDog.breeds.primary;
+  console.log(user.selectedDog.breeds.secondary);
+  let secondary = user.selectedDog.breeds.secondary;
+  console.log(user.selectedDog.age);
+  let age = user.selectedDog.age;
+  console.log(user.selectedDog.gender);
+  let gender = user.selectedDog.gender;
+  console.log(user.selectedDog.description);
+  let description = user.selectedDog.description;
+  console.log(user.selectedDog.url);
+  let url = user.selectedDog.url;
+}
+
+// TODO BUG - this is only registering one click for the first picture. Event Delegation.
+
+function startClickListener() {
+  $(document).ready(function(){
+    console.log('listening for clicks')
+    $(".post").click(function(event){
+      const detail = $(event.target).closest('.post').children('.post-content').children('.post-detail')[0];
+      console.log(detail)
+      $(detail).toggleClass('show');
+      // 'clicked', user.petUrl = $(this.innerHTML);
+      // user.petUrl = $('#post img').attr('src');
+      // console.log(user.petUrl);
+      // getPetObject(user.pets.animals, user.petUrl)
+    });
+  });
+}
+
+function getPetObject(object, value){
+  console.log('looking for pet object');
+  for (var i = 0; i < object.length; i++){
+    if (object[i].photos[0].large === value){
+      user.selectedDog = object[i]
+    }
+  }
+  createDetail()
+}
+
+// TODO this is just collecting data at this point. I need to append this data to the DOM, but I first need to find the DOM element that was originally selected. I might just go back and save it on click, then reference it here.
+function createDetail(){
+  console.log(user.selectedDog);
+  console.log(user.selectedDog.species);
+  let species = user.selectedDog.species;
+  console.log(user.selectedDog.breeds.primary);
+  let primary = user.selectedDog.breeds.primary;
+  console.log(user.selectedDog.breeds.secondary);
+  let secondary = user.selectedDog.breeds.secondary;
+  console.log(user.selectedDog.age);
+  let age = user.selectedDog.age;
+  console.log(user.selectedDog.gender);
+  let gender = user.selectedDog.gender;
+  console.log(user.selectedDog.description);
+  let description = user.selectedDog.description;
+  console.log(user.selectedDog.url);
+  let url = user.selectedDog.url;
 }
 
 /* --------------- Handles unsuccessful Ajax Request */
