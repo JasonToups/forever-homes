@@ -17,10 +17,8 @@ from django.shortcuts import render, redirect
 
 
 def index(request):
-
-
-
-    return HttpResponse('<h1>Homepage!</h1>')
+    return render(request, 'index.html', {})
+    # return HttpResponse('<h1>Account Homepage!</h1>')
 
 def intro(request):
     print('intro')
