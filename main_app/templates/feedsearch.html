@@ -46,8 +46,28 @@
                         <i class="fa fa-bars"></i>
                 </a>
         </div>
-        {% block content %}
-        {% endblock %}
+        <div id="searchForm">
+                <h1>Select Your Search Paramaters</h1>
+                <form METHOD="GET" action=".">
+                        <input type="checkbox" name="type1" value="Dog">
+                        <label for="type1">Dog</label><br>
+                        <input type="checkbox" name="type2" value="Cat">
+                        <label for="type2">Cat</label><br>
+                        <input type="checkbox" name="type3" value="Rabbit">
+                        <label for="type3">Rabbit</label><br>
+                        <input type="checkbox" name="type4" value="Small & Furry">
+                        <label for="type4">Small & Furry</label><br>
+                        <input type="checkbox" name="type5" value="Horse">
+                        <label for="type5">Horse</label><br>
+                        <input type="checkbox" name="type6" value="Bird">
+                        <label for="type6">Bird</label><br>
+                        <input type="checkbox" name="type7" value="Scales, Fins & Other">
+                        <label for="type7">Scales, Fins & Other</label><br>
+                        <input type="checkbox" name="type8" value="Barnyard">
+                        <label for="type8">Barnyard</label><br>
+                </form>
+        </div>
+
 </body>
 
 </html>
