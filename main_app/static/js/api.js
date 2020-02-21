@@ -75,6 +75,7 @@ function filterPhotos () {
   createFeed();
 }
 
+// TODO refactor this to pass in a param, to use for both Main Feed & Favorites Feed
 function createFeed () {
   for (i = 0; i < user.pets.animals.length; i++){
     let name = user.pets.animals[i].name;

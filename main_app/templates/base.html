@@ -8,7 +8,9 @@
         <link href="https://fonts.googleapis.com/css?family=Suez+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+        <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+        <link rel="stylesheet" href="{% static 'css/form.css' %}">
         <script defer src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script defer src="../static/js/api.js"></script>
         <title>Forever Homes</title>
@@ -36,19 +38,6 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
-        {% comment %} <h1><img class="logo" src="{% static "images/logo-black.svg" %}"><a class="header" href="http://localhost:8000">Forever Homes</a></h1>
-        <nav>
-            {% if user.is_authenticated %}
-                Welcome {{ user.username }}
-                <a href="/users/mainfeed">Pet Feed</a>
-                <a href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a href="/users/mainfeed">Pet Feed</a>
-                <a href="/accounts/register">SignUp</a>
-                <a href="{% url 'login' %}">Login</a>
-            {% endif %}
-        </nav> {% endcomment %}
-
         {% block content %}
         {% endblock %}
     </body>
