@@ -26,15 +26,17 @@
             {% if user.is_authenticated %}
                 Welcome {{ user.username }}
                 <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                <a class="menu" href="/users/favorites">Favorites</a>
                 <a class="menu" href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                <a class="menu" id="favorites" href="#">Favorites</a>
                 <a class="menu" href="/accounts/register">SignUp</a>
                 <a class="menu" href="{% url 'login' %}">Login</a>
             {% endif %}
         </div>
         <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
             <i class="fa fa-bars"></i>
         </a>
     </div>

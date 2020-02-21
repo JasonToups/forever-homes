@@ -4,6 +4,8 @@ console.log('adopt some pets!')
 let user = {
   apiKey: "bbbwM5cNHrI9qH2vnqNnzTd828VIPtgBb2o7g2AgNihqnslFm1",
   secret: "59vvv4E0djZGzSKLzFDRTtEbAB5kSwA4GjTvPM22",
+  favoriteDogObject: [],
+  favoriteDogId: [],
 }
 
 let requestBody = 'grant_type=client_credentials&client_id=' + user.apiKey + '&client_secret=' + user.secret
@@ -77,7 +79,7 @@ function filterPhotos () {
 
 // Pass in a param, to use for both Main Feed & Favorites Feed
 function createFeed (array) {
-  for (i = 0; i < user.pets.animals.length; i++){
+  for (i = 0; i < array.length; i++){
     let name = array[i].name;
     let image = array[i].photos[0].large;
     let species = array[i].species;
@@ -155,23 +157,32 @@ function startClickListener() {
       console.log(detail)
       // saving the url to the user object to look up the pet object id from the user.pets
       user.favoriteImage = detail;
-      getPetObject(user.pets.animals, user.favoriteImage)
+      getFavorite(user.pets.animals, user.favoriteImage)
+    });
+    $("#favorites").click(function(event){
+      
+      showFavorites();
     });
   });
-}
+};
 
-// This finds the whole pet object, and saves the pet id
-function getPetObject(object, value){
-  console.log('looking for pet id');
+// This finds the whole pet object, and saves it to User
+function getFavorite(object, value){
+  console.log('looking for favorite pet');
   for (var i = 0; i < object.length; i++){
-    // console.log(object[i])
     if (object[i].photos[0].large === value){
-      user.selectedDogId = object[i].id;
-      user.selectedDogObject = object[i];
+      console.log('pet found!')
+      user.favoriteDogId.push(object[i].id);
+      user.favoriteDogObject.push(object[i]);
     }
   }
-  console.log(user.selectedDogId)
-  console.log(user.selectedDogObject)
+  console.log(user.favoriteDogObject);
+}
+
+function showFavorites(){
+  $('.post').remove();
+  document.getElementById("myLinks").style.display = "none"
+  createFeed(user.favoriteDogObject);
 }
 
 /* --------------- Handles unsuccessful Ajax Request */
@@ -189,6 +200,7 @@ function hamburgerMenu() {
   }
 }
 
+// Controlls the hamburger menu for mobile
 hamburgerMenu()
 
 /* This invokes the function to get the token, which starts the series of API requests */
