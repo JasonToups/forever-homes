@@ -72,21 +72,21 @@ function filterPhotos () {
   }
   user.pets.animals = array;
   console.log(user.pets);
-  createFeed();
+  createFeed(user.pets.animals);
 }
 
-// TODO refactor this to pass in a param, to use for both Main Feed & Favorites Feed
-function createFeed () {
+// Pass in a param, to use for both Main Feed & Favorites Feed
+function createFeed (array) {
   for (i = 0; i < user.pets.animals.length; i++){
-    let name = user.pets.animals[i].name;
-    let image = user.pets.animals[i].photos[0].large;
-    let species = user.pets.animals[i].species;
-    let breedPrimary = user.pets.animals[i].breeds.primary;
-    let breedSecondary = user.pets.animals[i].breeds.secondary;
-    let age = user.pets.animals[i].age;
-    let gender = user.pets.animals[i].gender;
-    let description = user.pets.animals[i].description;
-    let url = user.pets.animals[i].url;
+    let name = array[i].name;
+    let image = array[i].photos[0].large;
+    let species = array[i].species;
+    let breedPrimary = array[i].breeds.primary;
+    let breedSecondary = array[i].breeds.secondary;
+    let age = array[i].age;
+    let gender = array[i].gender;
+    let description = array[i].description;
+    let url = array[i].url;
     const template = `
     <div class="post">
       <div class="post-image">
@@ -98,6 +98,7 @@ function createFeed () {
             <h2>${name}</h2>
           </div>
           <div class="post-favorite">
+            <img class="favorite" src="../static/images/heart.svg"/>
           </div>
         </div>
         <div class="post-detail">
@@ -108,7 +109,7 @@ function createFeed () {
           <p class="pet-detail">Gender: ${gender}</p>
           <p class="pet-detail">Description: ${description}</p>
           <div class="button">
-            <a href="${url}"><button class="adopt">Adopt Me</button></a>
+            <a href="${url}" target="_blank"><button class="adopt">Adopt Me</button></a>
           </div>
         </div>
       </div>
@@ -119,6 +120,7 @@ function createFeed () {
   startClickListener()
 }
 
+/* TODO This function may be redundant, delete later */
 function createDetail(){
   console.log(user.selectedDog);
   console.log(user.selectedDog.species);
@@ -136,51 +138,38 @@ function createDetail(){
   console.log(user.selectedDog.url);
   let url = user.selectedDog.url;
 }
-
-// TODO BUG - this is only registering one click for the first picture. Event Delegation.
 
 function startClickListener() {
   $(document).ready(function(){
     console.log('listening for clicks')
+    // to show and hide the detail of the post
     $(".post").click(function(event){
       const detail = $(event.target).closest('.post').children('.post-content').children('.post-detail')[0];
       console.log(detail)
       $(detail).toggleClass('show');
-      // 'clicked', user.petUrl = $(this.innerHTML);
-      // user.petUrl = $('#post img').attr('src');
-      // console.log(user.petUrl);
-      // getPetObject(user.pets.animals, user.petUrl)
+    });
+    // to favorite pets in the feed
+    $(".favorite").click(function(event){
+      console.log('You found a favorite pet!');
+      const detail = $(event.target).closest('.post').children('.post-image').children('.pet-picture')[0].src;
+      console.log(detail)
+      // saving the url to the user object to look up the pet object id from the user.pets
+      user.favoriteImage = detail;
+      getPetObject(user.pets.animals, user.favoriteImage)
     });
   });
 }
 
+// This finds the whole pet object, and saves the pet id
 function getPetObject(object, value){
-  console.log('looking for pet object');
+  console.log('looking for pet id');
   for (var i = 0; i < object.length; i++){
+    // console.log(object[i])
     if (object[i].photos[0].large === value){
-      user.selectedDog = object[i]
+      user.selectedDog = object[i].id
     }
   }
-  createDetail()
-}
-
-// TODO this is just collecting data at this point. I need to append this data to the DOM, but I first need to find the DOM element that was originally selected. I might just go back and save it on click, then reference it here.
-function createDetail(){
-  console.log(user.selectedDog);
-  console.log(user.selectedDog.species);
-  let species = user.selectedDog.species;
-  console.log(user.selectedDog.breeds.primary);
-  let primary = user.selectedDog.breeds.primary;
-  console.log(user.selectedDog.breeds.secondary);
-  let secondary = user.selectedDog.breeds.secondary;
-  console.log(user.selectedDog.age);
-  let age = user.selectedDog.age;
-  console.log(user.selectedDog.gender);
-  let gender = user.selectedDog.gender;
-  console.log(user.selectedDog.description);
-  let description = user.selectedDog.description;
-  console.log(user.selectedDog.url);
-  let url = user.selectedDog.url;
+  console.log(user.selectedDog)
 }
 
 /* --------------- Handles unsuccessful Ajax Request */
@@ -189,7 +178,7 @@ const onError = (error, errorText, errorCode) => {
 };
 
 /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
+function hamburgerMenu() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "none") {
     x.style.display = "block";
@@ -198,7 +187,7 @@ function myFunction() {
   }
 }
 
-myFunction()
+hamburgerMenu()
 
 /* This invokes the function to get the token, which starts the series of API requests */
 getToken();
