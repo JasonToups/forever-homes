@@ -1,20 +1,53 @@
-{% extends 'base.html' %}
-
-
 {% load static %}
 
+<html>
 
-{% block content %}
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Suez+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+        <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+        <link rel="stylesheet" href="{% static 'css/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+        <!-- FeedSearch-specific JS -->
+        <script defer src="../static/js/feedsearch.js"></script>
+        <script defer src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script defer src="../static/js/api.js"></script>
+        <title>Forever Homes</title>
+</head>
 
-        <nav>
-                
-                <h1>{{ user.username }}, filter your search to find your favorite pets!</h1>
+<body>
+        <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+                <h1><img class="logo active" src="{% static "images/logo-white.svg" %}"><a class="header active"
+                                href="http://localhost:8000">Forever Homes</a></h1>
+                <!-- Navigation links (hidden by default) -->
+                <div id="myLinks">
+                        {% if user.is_authenticated %}
+                        Welcome {{ user.username }}
+                        <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                        <a class="menu" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                        <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                        <a class="menu" href="/accounts/register">SignUp</a>
+                        <a class="menu" href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                </a>
+        </div>
+        {% block content %}
+        {% endblock %}
+</body>
 
-
-
-        </nav>
-
-
-
-{% endblock %}
+</html>
