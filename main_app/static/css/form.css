@@ -31,13 +31,13 @@ label {
   font-size: 15px;
 }
 
-.button{
+/* .button{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-}
+} */
 
 .submit {
   border-radius: 20px;
