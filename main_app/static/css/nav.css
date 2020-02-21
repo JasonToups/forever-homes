@@ -1,6 +1,8 @@
 /* ----------- Globals ----------- */
 :root {
   --content-width: 350px;
+  --dark-grey: rgb(77, 77, 77);
+  --primary-color: cadetblue;
 }
 * {
   margin: 0;
@@ -11,7 +13,7 @@
 body {
   background-image: linear-gradient(lightgrey, rgb(150, 150, 150));
   font-family: 'Suez One', serif;
-  color: rgb(77, 77, 77);
+  color: var(--dark-grey);
 }
 
 /* ----------- Nav Menu ----------- */
@@ -28,41 +30,47 @@ body {
   display: none;
 }
 
-.menu a {
-  font-size: 17px;
-}
-
 /* Style navigation menu links */
 .topnav a {
   color: white;
-  padding: 14px 16px;
+  padding: 10px;
   text-decoration: none;
-  font-size: 20px;
   display: block;
 }
+
+.topnav h1 a {
+  font-size: 22px;
+}
+
 
 /* Style the hamburger menu */
 .topnav a.icon {
   background: transparent;
+  margin-right: 7px;
   display: block;
+  font-size: 23px;
   position: absolute;
   right: 0;
   top: 0;
 }
 
+.menu a {
+  font-size: 15px;
+}
+
 /* Add a grey background color on mouse-over */
 .topnav a:hover {
-  color: black;
+  color: var(--dark-grey)
 }
 
 /* Style the active link (or home/logo) */
 .active {
-  background-color: cadetblue;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .logo {
-  width: 55px;
+  width: 50px;
   padding-left: 10px;
 }
 
@@ -75,4 +83,12 @@ h1 {
   font-size: 20px;
   text-decoration: none;
   width: 100%;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
 }
