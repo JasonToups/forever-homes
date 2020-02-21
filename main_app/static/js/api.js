@@ -162,7 +162,7 @@ function startClickListener() {
 
 // This finds the whole pet object, and saves the pet id
 function getPetObject(object, value){
-  console.log('looking for pet object');
+  console.log('looking for pet id');
   for (var i = 0; i < object.length; i++){
     // console.log(object[i])
     if (object[i].photos[0].large === value){
