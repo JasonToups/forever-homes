@@ -3,6 +3,15 @@
   --content-width: 350px;
   --dark-grey: rgb(77, 77, 77);
   --primary-color: cadetblue;
+  --secondary-color: lightsalmon;
+  --tertiary-color: ;
+  --button-color-active: wheat;
+  --button-color-passive: ;
+  --text-primary-color: ;
+  --text-secondary-color: ;
+  --text-active-color: ;
+  --text-passive-color: ;
+  --nav-height: 49px;
 }
 * {
   margin: 0;
@@ -21,7 +30,9 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #333;
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   border-radius: 0px 0px 20px 20px;
 }
 
