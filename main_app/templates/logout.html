@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+        <nav>
+                
+                <h1>{{ user.username }}, are you sure you want to log out?</h1>
+
+
+                        <!-- logout  -->
+                        <a href="/users/logout">Logout</a>
+
+
+
+
+        </nav>
+
+
+
+{% endblock %}
