@@ -77,9 +77,25 @@ function populateGender() {
         $('#searchGenders').append('<br/><h3>Select A Single Gender</h3>')
         for (let i = 0; i < apiResponse.type.genders.length; i++) {
                 $('#searchGenders').append(`
-                        <input class="colors-box" type="checkbox" name="type1" value="${apiResponse.type.genders[i]}">
+                        <input class="gender-box" type="checkbox" name="type1" value="${apiResponse.type.genders[i]}">
                                 <label for="type1">${apiResponse.type.genders[i]}</label><br>
                         `)
         }
 }
 
+$('#submitSearch').on('click', function(evt) {
+        event.preventDefault();
+        console.log('submit clicked!');
+        if ($('.checked-box').siblings(':checked')) {
+                console.log($('.checked-box').siblings(':checked').val())
+        }
+        if ($('.coats-box').is(':checked')) {
+                console.log($('.coats-box').siblings(':checked').val())
+        }
+        if ($('.colors-box').is(':checked')) {
+                console.log($('.colors-box').siblings(':checked').val())
+        }
+        if ($('.gender-box').is(':checked')) {
+                console.log($('.gender-box').siblings(':checked').val())
+        }
+});
