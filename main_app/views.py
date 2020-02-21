@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ProfileForm
+from .models import Profile
 
 from django.shortcuts import render, redirect
 
@@ -19,6 +20,7 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'index.html', {})
     # return HttpResponse('<h1>Account Homepage!</h1>')
+
 
 def intro(request):
     print('intro')
@@ -51,17 +53,19 @@ def feed_search(request):
 
 
 def detail_profile(request):
-    # return HttpResponse('<h1>Detail Profile View!</h1>')
-    return render(request, 'detail_profile.html', {'username': username})
-
-
-def edit_profile(request):
-    # return HttpResponse('<h1>Edit Profile!</h1>')
-    return render(request, 'detail_profile.html', {'username': username})
+    profile = Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            profile.save()
+            return render(request, 'detail_profile.html', {'form': form})
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'detail_profile.html', {'form': form})
 
 def delete_profile(request):
     # return HttpResponse('<h1>Delete Profile!</h1>')
-    return render(request, 'detail_profile.html', {'username': username})
+    return render(request, 'detail_profile.html')
 
 def logout(request):
     logout(request)
@@ -72,8 +76,6 @@ def logout_success(request):
         logout_success(request)
         return redirect('/')
 
-
-
 # from cat-collectr
 def profile(request, username):
         user = User.objects.get(username=username)
@@ -82,3 +84,5 @@ def profile(request, username):
         return render(request, 'profile.html', {'username': username})
         # return render(request, 'profile.html', {'username': username, 'cats': cats})
 
+def favorites(request):
+    return render(request, 'favorites.html')
