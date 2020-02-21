@@ -72,21 +72,21 @@ function filterPhotos () {
   }
   user.pets.animals = array;
   console.log(user.pets);
-  createFeed();
+  createFeed(user.pets.animals);
 }
 
-// TODO refactor this to pass in a param, to use for both Main Feed & Favorites Feed
-function createFeed () {
+// Pass in a param, to use for both Main Feed & Favorites Feed
+function createFeed (array) {
   for (i = 0; i < user.pets.animals.length; i++){
-    let name = user.pets.animals[i].name;
-    let image = user.pets.animals[i].photos[0].large;
-    let species = user.pets.animals[i].species;
-    let breedPrimary = user.pets.animals[i].breeds.primary;
-    let breedSecondary = user.pets.animals[i].breeds.secondary;
-    let age = user.pets.animals[i].age;
-    let gender = user.pets.animals[i].gender;
-    let description = user.pets.animals[i].description;
-    let url = user.pets.animals[i].url;
+    let name = array[i].name;
+    let image = array[i].photos[0].large;
+    let species = array[i].species;
+    let breedPrimary = array[i].breeds.primary;
+    let breedSecondary = array[i].breeds.secondary;
+    let age = array[i].age;
+    let gender = array[i].gender;
+    let description = array[i].description;
+    let url = array[i].url;
     const template = `
     <div class="post">
       <div class="post-image">
@@ -108,7 +108,7 @@ function createFeed () {
           <p class="pet-detail">Gender: ${gender}</p>
           <p class="pet-detail">Description: ${description}</p>
           <div class="button">
-            <a href="${url}"><button class="adopt">Adopt Me</button></a>
+            <a href="${url}" target="_blank"><button class="adopt">Adopt Me</button></a>
           </div>
         </div>
       </div>
@@ -119,6 +119,7 @@ function createFeed () {
   startClickListener()
 }
 
+/* TODO This function may be redundant, delete later */
 function createDetail(){
   console.log(user.selectedDog);
   console.log(user.selectedDog.species);
@@ -146,14 +147,11 @@ function startClickListener() {
       const detail = $(event.target).closest('.post').children('.post-content').children('.post-detail')[0];
       console.log(detail)
       $(detail).toggleClass('show');
-      // 'clicked', user.petUrl = $(this.innerHTML);
-      // user.petUrl = $('#post img').attr('src');
-      // console.log(user.petUrl);
-      // getPetObject(user.pets.animals, user.petUrl)
     });
   });
 }
 
+// TODO this may be redundant, delete later
 function getPetObject(object, value){
   console.log('looking for pet object');
   for (var i = 0; i < object.length; i++){
@@ -164,7 +162,7 @@ function getPetObject(object, value){
   createDetail()
 }
 
-// TODO this is just collecting data at this point. I need to append this data to the DOM, but I first need to find the DOM element that was originally selected. I might just go back and save it on click, then reference it here.
+// TODO this may be redundant, delete later
 function createDetail(){
   console.log(user.selectedDog);
   console.log(user.selectedDog.species);
