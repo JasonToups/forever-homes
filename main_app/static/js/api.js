@@ -98,6 +98,7 @@ function createFeed (array) {
             <h2>${name}</h2>
           </div>
           <div class="post-favorite">
+            <img class="favorite" src="../static/images/heart.svg"/>
           </div>
         </div>
         <div class="post-detail">
@@ -138,47 +139,37 @@ function createDetail(){
   let url = user.selectedDog.url;
 }
 
-// TODO BUG - this is only registering one click for the first picture. Event Delegation.
-
 function startClickListener() {
   $(document).ready(function(){
     console.log('listening for clicks')
+    // to show and hide the detail of the post
     $(".post").click(function(event){
       const detail = $(event.target).closest('.post').children('.post-content').children('.post-detail')[0];
       console.log(detail)
       $(detail).toggleClass('show');
     });
+    // to favorite pets in the feed
+    $(".favorite").click(function(event){
+      console.log('You found a favorite pet!');
+      const detail = $(event.target).closest('.post').children('.post-image').children('.pet-picture')[0].src;
+      console.log(detail)
+      // saving the url to the user object to look up the pet object id from the user.pets
+      user.favoriteImage = detail;
+      getPetObject(user.pets.animals, user.favoriteImage)
+    });
   });
 }
 
-// TODO this may be redundant, delete later
+// This finds the whole pet object, and saves the pet id
 function getPetObject(object, value){
   console.log('looking for pet object');
   for (var i = 0; i < object.length; i++){
+    // console.log(object[i])
     if (object[i].photos[0].large === value){
-      user.selectedDog = object[i]
+      user.selectedDog = object[i].id
     }
   }
-  createDetail()
-}
-
-// TODO this may be redundant, delete later
-function createDetail(){
-  console.log(user.selectedDog);
-  console.log(user.selectedDog.species);
-  let species = user.selectedDog.species;
-  console.log(user.selectedDog.breeds.primary);
-  let primary = user.selectedDog.breeds.primary;
-  console.log(user.selectedDog.breeds.secondary);
-  let secondary = user.selectedDog.breeds.secondary;
-  console.log(user.selectedDog.age);
-  let age = user.selectedDog.age;
-  console.log(user.selectedDog.gender);
-  let gender = user.selectedDog.gender;
-  console.log(user.selectedDog.description);
-  let description = user.selectedDog.description;
-  console.log(user.selectedDog.url);
-  let url = user.selectedDog.url;
+  console.log(user.selectedDog)
 }
 
 /* --------------- Handles unsuccessful Ajax Request */
@@ -187,7 +178,7 @@ const onError = (error, errorText, errorCode) => {
 };
 
 /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
+function hamburgerMenu() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "none") {
     x.style.display = "block";
@@ -196,7 +187,7 @@ function myFunction() {
   }
 }
 
-myFunction()
+hamburgerMenu()
 
 /* This invokes the function to get the token, which starts the series of API requests */
 getToken();

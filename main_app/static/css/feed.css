@@ -20,6 +20,12 @@
   margin-bottom: 15px;
 }
 
+.post-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 h2 {
   font-size: 30;
   font-family: 'Suez One', serif;
@@ -29,6 +35,14 @@ h2 {
   padding-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  flex-grow: 1;
+}
+
+.favorite {
+  height: 23px;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-right: 10px;
 }
 
 .post-detail {
