@@ -166,10 +166,12 @@ function getPetObject(object, value){
   for (var i = 0; i < object.length; i++){
     // console.log(object[i])
     if (object[i].photos[0].large === value){
-      user.selectedDog = object[i].id
+      user.selectedDogId = object[i].id;
+      user.selectedDogObject = object[i];
     }
   }
-  console.log(user.selectedDog)
+  console.log(user.selectedDogId)
+  console.log(user.selectedDogObject)
 }
 
 /* --------------- Handles unsuccessful Ajax Request */
