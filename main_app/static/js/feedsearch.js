@@ -22,32 +22,40 @@ $('#searchColors').on('change', '.colors-box', function(evt) {
 });
 
 let apiResponse;
+let userSearch;
+let speciesSearch;
+let coatSearch;
+let colorSearch;
+let genderSearch;
 
 $('.checked-box').on('click', function(evt) {
         if($(this).is(':checked')) {
-        let userType= encodeURIComponent($(this).val());
-        console.log(userType);
-        $.ajax({
-                url: `https://api.petfinder.com/v2/types/${userType}/`,
-                 method: 'GET',
-                headers: {
-                'Authorization': user.token.token_type + ' ' + user.token.access_token,
-                'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                data: requestBody,
-                dataType: 'json',
-                processData: false,
-                success: onSuccess, 
-                error: error => console.log(error)
-        });
+                let userType= encodeURIComponent($(this).val());
+                console.log(userType);
+                $.ajax({
+                        url: `https://api.petfinder.com/v2/types/${userType}/`,
+                        method: 'GET',
+                        headers: {
+                        'Authorization': user.token.token_type + ' ' + user.token.access_token,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: requestBody,
+                        dataType: 'json',
+                        processData: false,
+                        success: onSuccess, 
+                        error: error => console.log(error)
+                });
         }
         else {
                 $('#searchCoats').empty();
                 $('#searchColors').empty();
                 $('#searchGenders').empty();
+                speciesSearch = '';
+                coatSearch = '';
+                colorSearch = '';
+                genderSearch = '';
         }
 });
-
 
 const onSuccess = response => {
         apiResponse = response;
@@ -93,17 +101,35 @@ function populateGender() {
 
 $('#submitSearch').on('click', function(evt) {
         event.preventDefault();
-        console.log('submit clicked!');
         if ($('.checked-box').siblings(':checked')) {
-                console.log($('.checked-box').siblings(':checked').val())
+                let species = ($('.checked-box').siblings(':checked').val());
+                let speciesInter = encodeURIComponent(species);
+                speciesSearch = `type=${speciesInter}`
         }
         if ($('.coats-box').is(':checked')) {
-                console.log($('.coats-box').siblings(':checked').val())
+                let coat = ($('.coats-box').siblings(':checked').val());
+                let coatInter = encodeURIComponent(coat);
+                coatSearch = `&coat=${coatInter}`
         }
         if ($('.colors-box').is(':checked')) {
-                console.log($('.colors-box').siblings(':checked').val())
+                let color = ($('.colors-box').siblings(':checked').val());
+                let colorInter = encodeURIComponent(color);
+                colorSearch = `&color=${colorInter}`
         }
         if ($('.gender-box').is(':checked')) {
-                console.log($('.gender-box').siblings(':checked').val())
+                let gender = ($('.gender-box').siblings(':checked').val());
+                let genderInter = encodeURIComponent(gender);
+                genderSearch = `&gender=${genderInter}`
         }
+        pushUserSearch();
 });
+
+function pushUserSearch() {
+        if (coatSearch === undefined) {
+                userSearch = `${speciesSearch}${colorSearch}${genderSearch}`;
+        }
+        else {
+                userSearch = `${speciesSearch}${coatSearch}${colorSearch}${genderSearch}`;
+        }
+        console.log(userSearch);
+}
