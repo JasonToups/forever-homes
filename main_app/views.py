@@ -20,6 +20,7 @@ def index(request):
     return render(request, 'index.html', {})
     # return HttpResponse('<h1>Account Homepage!</h1>')
 
+
 def intro(request):
     print('intro')
     return render(request, 'intro.html')
