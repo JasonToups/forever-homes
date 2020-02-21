@@ -24,22 +24,30 @@ $('#searchColors').on('change', '.colors-box', function(evt) {
 let apiResponse;
 
 $('.checked-box').on('click', function(evt) {
+        if($(this).is(':checked')) {
         let userType= encodeURIComponent($(this).val());
         console.log(userType);
         $.ajax({
                 url: `https://api.petfinder.com/v2/types/${userType}/`,
-                method: 'GET',
+                 method: 'GET',
                 headers: {
-                  'Authorization': user.token.token_type + ' ' + user.token.access_token,
-                  'Content-Type': 'application/x-www-form-urlencoded'
+                'Authorization': user.token.token_type + ' ' + user.token.access_token,
+                'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 data: requestBody,
                 dataType: 'json',
                 processData: false,
                 success: onSuccess, 
                 error: error => console.log(error)
-              });
+        });
+        }
+        else {
+                $('#searchCoats').empty();
+                $('#searchColors').empty();
+                $('#searchGenders').empty();
+        }
 });
+
 
 const onSuccess = response => {
         apiResponse = response;
