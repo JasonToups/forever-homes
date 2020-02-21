@@ -4,6 +4,8 @@ console.log('adopt some pets!')
 let user = {
   apiKey: "bbbwM5cNHrI9qH2vnqNnzTd828VIPtgBb2o7g2AgNihqnslFm1",
   secret: "59vvv4E0djZGzSKLzFDRTtEbAB5kSwA4GjTvPM22",
+  favoriteDogObject: [],
+  favoriteDogId: [],
 }
 
 let requestBody = 'grant_type=client_credentials&client_id=' + user.apiKey + '&client_secret=' + user.secret
@@ -29,13 +31,14 @@ function getToken() {
 // Then we use the token to request the array of adoption listings
 const onSuccessToken = response => {
   user.token = response;
-  getPets();
+  getPets("status=adoptable&type=dog&limit=100");
 };
 
 // API request for getting pet adoption listings
-function getPets(){
+function getPets(searchString){
+  $('.post').remove();
   $.ajax({
-    url: "https://api.petfinder.com/v2/animals?status=adoptable&type=dog&limit=100",
+    url: `https://api.petfinder.com/v2/animals?${searchString}`,
     method: 'GET',
     headers: {
       'Authorization': user.token.token_type + ' ' + user.token.access_token,
@@ -77,7 +80,7 @@ function filterPhotos () {
 
 // Pass in a param, to use for both Main Feed & Favorites Feed
 function createFeed (array) {
-  for (i = 0; i < user.pets.animals.length; i++){
+  for (i = 0; i < array.length; i++){
     let name = array[i].name;
     let image = array[i].photos[0].large;
     let species = array[i].species;
@@ -155,21 +158,32 @@ function startClickListener() {
       console.log(detail)
       // saving the url to the user object to look up the pet object id from the user.pets
       user.favoriteImage = detail;
-      getPetObject(user.pets.animals, user.favoriteImage)
+      getFavorite(user.pets.animals, user.favoriteImage)
+    });
+    $("#favorites").click(function(event){
+      
+      showFavorites();
     });
   });
-}
+};
 
-// This finds the whole pet object, and saves the pet id
-function getPetObject(object, value){
-  console.log('looking for pet id');
+// This finds the whole pet object, and saves it to User
+function getFavorite(object, value){
+  console.log('looking for favorite pet');
   for (var i = 0; i < object.length; i++){
-    // console.log(object[i])
     if (object[i].photos[0].large === value){
-      user.selectedDog = object[i].id
+      console.log('pet found!')
+      user.favoriteDogId.push(object[i].id);
+      user.favoriteDogObject.push(object[i]);
     }
   }
-  console.log(user.selectedDog)
+  console.log(user.favoriteDogObject);
+}
+
+function showFavorites(){
+  $('.post').remove();
+  document.getElementById("myLinks").style.display = "none"
+  createFeed(user.favoriteDogObject);
 }
 
 /* --------------- Handles unsuccessful Ajax Request */
@@ -187,6 +201,7 @@ function hamburgerMenu() {
   }
 }
 
+// Controlls the hamburger menu for mobile
 hamburgerMenu()
 
 /* This invokes the function to get the token, which starts the series of API requests */
