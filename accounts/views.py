@@ -14,7 +14,15 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            u = form.cleaned_data['username']
+            p = form.cleaned_data['password1']
+            user = authenticate(username = u, password = p)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+            return redirect('intro')
+        else:
+            return render(request, 'register.html', {'form': form})
     else:
         form = UserCreationForm()
         return render(request, 'register.html', {'form': form})
@@ -37,3 +45,7 @@ def login_view(request):
 def logout_view(request):
     auth.logout(request)
     return redirect('main_feed')
+
+
+
+

@@ -4,9 +4,9 @@ from .forms import ProfileForm
 
 from django.shortcuts import render, redirect
 
-from .forms import LoginForm
+# from .forms import LoginFormpi
 
-from django.contrib
+# from django.contrib
 
 
 # taking a web request and returns a web response.
@@ -23,7 +23,11 @@ def index(request):
     return HttpResponse('<h1>Homepage!</h1>')
 
 def intro(request):
-    return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
+    print('intro')
+    return render(request, 'intro.html')
+
+    # return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
+    # return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
 
 def create_profile(request):
     if request.method == 'POST':
@@ -71,25 +75,6 @@ def logout_success(request):
         return redirect('/')
 
 
-
-# from cat-collectr
-def login_view(request):
-        if request.method == 'POST':
-                form = LoginForm(request.POST)
-                if form.is_valid():
-                        u = form.cleaned_data['username']
-                        p = form.cleaned_data['password']
-                        user = authenticate(username = u, password = p)
-                        if user. is_active:
-                                login(request, user)
-                                return redirect('/')
-                        else:
-                                print("The account has been disabled.")
-                else:
-                        print("the username and/or password is incorrect.")
-        else: 
-                form = LoginForm()
-                return render(request, 'login.html', {'form': form})
 
 # from cat-collectr
 def profile(request, username):
