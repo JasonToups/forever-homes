@@ -35,7 +35,6 @@ const onSuccessToken = response => {
 };
 
 // API request for getting pet adoption listings
-// TODO update this to receive a parameter from the db with the search string
 function getPets(searchString){
   $('.post').remove();
   $.ajax({
