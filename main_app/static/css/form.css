@@ -1,9 +1,12 @@
 .login{
   align-items: center;
-  background-color: lightsalmon;
+  background-color: var(--secondary-color);
   border-radius: 20px;
   color: rgb(50, 50, 50);
   padding-top: 5px;
+  margin-top: calc(var(--nav-height) + 15px);
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .fields {
@@ -44,7 +47,7 @@ label {
   padding: 5px 15px;
   margin-top: 5px;
   margin-bottom: 10px;
-  background-color: wheat;
+  background-color: var(--button-color-active);
   font-family: 'Suez One', serif;
   font-size: 20;
 }

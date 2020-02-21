@@ -31,13 +31,15 @@ function getToken() {
 // Then we use the token to request the array of adoption listings
 const onSuccessToken = response => {
   user.token = response;
-  getPets();
+  getPets("status=adoptable&type=dog&limit=100");
 };
 
 // API request for getting pet adoption listings
-function getPets(){
+// TODO update this to receive a parameter from the db with the search string
+function getPets(searchString){
+  $('.post').remove();
   $.ajax({
-    url: "https://api.petfinder.com/v2/animals?status=adoptable&type=dog&limit=100",
+    url: `https://api.petfinder.com/v2/animals?${searchString}`,
     method: 'GET',
     headers: {
       'Authorization': user.token.token_type + ' ' + user.token.access_token,

@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: calc(var(--nav-height) + 15px);
 }
 
 /* The image for a post */
@@ -68,7 +69,7 @@ h2 {
   color: var(--dark-grey);
   padding: 10px 20px;
   border: none;
-  background-color: wheat;
+  background-color: var(--button-color-active);
   font-family: 'Suez One', serif;
   font-size: 20;
 }
