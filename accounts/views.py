@@ -5,9 +5,12 @@ from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
 
-
+# it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
-    return HttpResponse('<h1>Accounts Homepage!</h1>')
+    return HttpResponse('<h1>Homepage!</h1>')
+
+
+    # return render(request, 'index')
 
 def register(request):
     if request.method == 'POST':

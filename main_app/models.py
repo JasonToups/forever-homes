@@ -7,9 +7,6 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
 
-<<<<<<< HEAD
-=======
 class Favorites(models.Model):
     post_id = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favorites')
->>>>>>> submaster
