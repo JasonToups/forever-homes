@@ -75,6 +75,7 @@ function filterPhotos () {
   createFeed();
 }
 
+// TODO refactor this to pass in a param, to use for both Main Feed & Favorites Feed
 function createFeed () {
   for (i = 0; i < user.pets.animals.length; i++){
     let name = user.pets.animals[i].name;
@@ -100,12 +101,12 @@ function createFeed () {
           </div>
         </div>
         <div class="post-detail">
-          <p>Type: ${species}</p>
-          <p>Breed Primary: ${breedPrimary}</p>
-          <p>Breed Secondary: ${breedSecondary}</p>
-          <p>Age: ${age}</p>
-          <p>Gender: ${gender}</p>
-          <p>Description: ${description}</p>
+          <p class="pet-detail">Type: ${species}</p>
+          <p class="pet-detail">Breed Primary: ${breedPrimary}</p>
+          <p class="pet-detail">Breed Secondary: ${breedSecondary}</p>
+          <p class="pet-detail">Age: ${age}</p>
+          <p class="pet-detail">Gender: ${gender}</p>
+          <p class="pet-detail">Description: ${description}</p>
           <div class="button">
             <a href="${url}"><button class="adopt">Adopt Me</button></a>
           </div>
@@ -186,6 +187,18 @@ function createDetail(){
 const onError = (error, errorText, errorCode) => {
   console.log({ error })
 };
+
+/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+myFunction()
 
 /* This invokes the function to get the token, which starts the series of API requests */
 getToken();
