@@ -44,7 +44,7 @@ def main_feed(request):
     return render(request, 'main_feed.html')
 
 def feed_search(request):
-    return HttpResponse('<h1>Main Feed Search!</h1>')
+    return render(request, 'feedsearch.html')
 
 
 # I've added this to make sure a request directs to the detail_profile with the necessary elements:
