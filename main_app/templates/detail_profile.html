@@ -5,12 +5,28 @@
 
 
 {% block content %}
-        <h2>Profile</h2>
+<!-- <h1 class="topspace"></h1> -->
+
+<h2>Profile</h2>
         <form method="POST" action="{% url 'detail_profile'%}">
                 {% csrf_token %}
                 {{ form.as_p }}
         <input type="submit" value="Edit Profile">
         </form>
+
+        <h2>Change password</h2>
+        <!-- <form method="POST" action="{% url 'detail_profile'%}">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <input type="submit" value="Edit Profile">
+        </form>  -->
+
+        <h2>Delete my account</h2>
+        <!-- <form method="POST" action="{% url 'detail_profile'%}">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <input type="submit" value="Delete">
+        </form>  -->
 
 
 {% endblock %}
