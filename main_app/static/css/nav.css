@@ -7,7 +7,7 @@
   --tertiary-color: ;
   --button-color-active: wheat;
   --button-color-passive: ;
-  --text-primary-color: ;
+  --text-primary-color: rgb(77, 77, 77);
   --text-secondary-color: ;
   --text-active-color: ;
   --text-passive-color: ;
@@ -71,7 +71,7 @@ body {
 
 /* Add a grey background color on mouse-over */
 .topnav a:hover {
-  color: var(--dark-grey)
+  color: var(--text-primary-color)
 }
 
 /* Style the active link (or home/logo) */
@@ -102,4 +102,5 @@ h1 {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  color: var(--text-primary-color)
 }

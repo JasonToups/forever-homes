@@ -2,7 +2,7 @@
   align-items: center;
   background-color: var(--secondary-color);
   border-radius: 20px;
-  color: rgb(50, 50, 50);
+  color: var(--text-primary-color);
   padding-top: 5px;
   margin-top: calc(var(--nav-height) + 15px);
   margin-left: 15px;
@@ -29,25 +29,20 @@ label {
   width: 95%;
   font-size: 15px;
 }
+
 #id_password {
   width: 95%;
   font-size: 15px;
 }
 
-/* .button{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-} */
-
+/* button */
 .submit {
+  font-family: 'Suez One', serif;
+  font-size: 20;
+  color: var(--text-primary-color);
+  background-color: var(--button-color-active);
   border-radius: 20px;
   padding: 5px 15px;
   margin-top: 5px;
   margin-bottom: 10px;
-  background-color: var(--button-color-active);
-  font-family: 'Suez One', serif;
-  font-size: 20;
 }
