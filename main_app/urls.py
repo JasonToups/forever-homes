@@ -4,8 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
 
-    path('users/<int:user_id>/', views.detail_profile, name='detail_profile'),
-    path('users/<int:user_id>/edit/', views.edit_profile, name='edit_profile'),
+    path('users/profile', views.detail_profile, name='detail_profile'),
     path('users/<int:user_id>/delete/', views.delete_profile, name='delete_profile'),
 
     path('users/intro', views.intro, name='intro'),
@@ -21,5 +20,5 @@ urlpatterns = [
     path('users/logoutsuccess', views.logout_success, name='logout_success'),
 
     
-    # path('users/favorites', views.favorites, name='favorites'),
+    path('users/favorites', views.favorites, name='favorites'),
 ]

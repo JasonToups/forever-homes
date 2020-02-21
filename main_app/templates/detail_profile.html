@@ -5,25 +5,28 @@
 
 
 {% block content %}
+<!-- <h1 class="topspace"></h1> -->
 
-        <nav>
+<h2>Profile</h2>
+        <form method="POST" action="{% url 'detail_profile'%}">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <input type="submit" value="Edit Profile">
+        </form>
 
+        <h2>Change password</h2>
+        <!-- <form method="POST" action="{% url 'detail_profile'%}">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <input type="submit" value="Edit Profile">
+        </form>  -->
 
-          
-                <h1>{{ user.username }}, What would you like to change?</h1>
-
-
-                        <!-- Edit profile -->
-                        <a href="/users/editprofile">Edit my profile</a>
-                        
-                        
-                        <!-- Change my Password? -->
-                        <a href="/users/changepassword">Change my password</a>
-
-
-
-        </nav>
-
+        <h2>Delete my account</h2>
+        <!-- <form method="POST" action="{% url 'detail_profile'%}">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <input type="submit" value="Delete">
+        </form>  -->
 
 
 {% endblock %}

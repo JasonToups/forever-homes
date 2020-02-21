@@ -27,6 +27,7 @@
             {% if user.is_authenticated %}
                 Welcome {{ user.username }}
                 <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                <a class="menu" href="/users/profile">My Profile</a>
                 <a class="menu" href="/users/favorites">Favorites</a>
                 <a class="menu" href="{% url 'logout' %}">Logout</a>
             {% else %}
@@ -41,6 +42,7 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
+
         {% block content %}
         {% endblock %}
     </body>
