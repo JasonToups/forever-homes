@@ -1,0 +1,50 @@
+.login{
+  align-items: center;
+  background-color: lightsalmon;
+  border-radius: 20px;
+  color: rgb(50, 50, 50);
+  padding-top: 5px;
+}
+
+.fields {
+  margin-left: 15px;
+}
+
+.login h2 {
+  margin-left: 10px;
+  font-size: 25px;
+}
+.login p {
+  margin-bottom: 5px;
+}
+
+label {
+  font-size: 17px;
+}
+
+#id_username {
+  width: 95%;
+  font-size: 15px;
+}
+#id_password {
+  width: 95%;
+  font-size: 15px;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.submit {
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: wheat;
+  font-family: 'Suez One', serif;
+  font-size: 20;
+}
