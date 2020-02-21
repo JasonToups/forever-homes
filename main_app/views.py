@@ -17,10 +17,8 @@ from django.shortcuts import render, redirect
 
 
 def index(request):
-
-
-
-    return HttpResponse('<h1>Homepage!</h1>')
+    return render(request, 'index.html', {})
+    # return HttpResponse('<h1>Account Homepage!</h1>')
 
 def intro(request):
     print('intro')
@@ -46,7 +44,7 @@ def main_feed(request):
     return render(request, 'main_feed.html')
 
 def feed_search(request):
-    return HttpResponse('<h1>Main Feed Search!</h1>')
+    return render(request, 'feedsearch.html')
 
 
 # I've added this to make sure a request directs to the detail_profile with the necessary elements:
