@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{% static 'css/form.css' %}">
         <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
         <script defer src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script defer src="{% static 'js/feedsearch.js' %}"></script>
         <script defer src="{% static 'js/api.js' %}"></script>
         <title>Forever Homes</title>
     </head>
@@ -20,21 +21,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Top Navigation Menu -->
-    <div class="topnav">
-        <h1><img class="logo active" src="{% static "images/logo-white.svg" %}"><a class="header active" href="/users/mainfeed">Forever Homes</a></h1>
+    <div class="topnav" id="myTopnav">
+        <h1>
+            <img class="logo" src="{% static "images/logo-white.svg" %}">
+            <a class="header active" href="/users/mainfeed">Forever Homes</a>
+        </h1>
         <!-- Navigation links (hidden by default) -->
         <div id="myLinks">
             {% if user.is_authenticated %}
                 Welcome {{ user.username }}
                 <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                <a class="menu" href="/users/feedsearch">Search</a>
+                <a class="menu" id="favorites" href="#">Favorites</a>
                 <a class="menu" href="/users/profile">My Profile</a>
-                <a class="menu" href="/users/favorites">Favorites</a>
                 <a class="menu" href="{% url 'logout' %}">Logout</a>
             {% else %}
-                <a class="menu" href="/users/mainfeed">Pet Feed</a>
-                <a class="menu" id="favorites" href="#">Favorites</a>
-                <a class="menu" href="/accounts/register">SignUp</a>
                 <a class="menu" href="{% url 'login' %}">Login</a>
+                <a class="menu" href="/users/mainfeed">Pet Feed</a>
+                <a class="menu" href="/users/feedsearch">Search</a>
+                <a class="menu" id="favorites" href="#">Favorites</a>
+                <a class="menu" href="/accounts/register">Register</a>
             {% endif %}
         </div>
         <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
