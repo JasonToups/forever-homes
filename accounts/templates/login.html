@@ -6,6 +6,9 @@
 <div class="login">
     <h2>Login</h2>
     <div class="fields">
+        {% if error %}
+            <h2>{{error}}</h2>
+        {% endif %}
         <form method="POST" action=".">
             {% csrf_token %}
             {{ form.as_p }}
