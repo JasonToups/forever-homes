@@ -25,6 +25,20 @@ body {
   color: var(--dark-grey);
 }
 
+.container {
+  margin-top: calc(var(--nav-height) + 15px);
+}
+
+.input{
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+  color: var(--text-primary-color);
+  padding-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 /* Media Queries for Responsive Nav */
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
@@ -37,7 +51,7 @@ body {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {position: absolute;}
   .topnav.responsive a.icon {
     position: absolute;
     right: 0;
@@ -113,12 +127,15 @@ body {
 .logo {
   width: 50px;
   padding-left: 10px;
+  padding-top: 7px;
   background-color: var(--primary-color);
+  position: absolute;
 }
 
 h1 {
   margin-bottom: 0px;
   display: flex;
+  position: relative;
 }
 
 .header {
@@ -126,6 +143,7 @@ h1 {
   text-decoration: none;
   width: 100%;
 }
+
 
 .button{
   display: flex;
