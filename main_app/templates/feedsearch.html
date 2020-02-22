@@ -1,34 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-        <div id="searchForm">
-                <br /><br />
-                <h1>Select Your Search Paramaters</h1><br/>
-                <h3>Select A Single Species:</h3>
-                <form METHOD="GET" action=".">
-                        <div id=searchSpecies>
-                                <input class="checked-box" type="checkbox" name="type1" value="dog">
-                                <label for="type1">Dog</label><br>
-                                <input class="checked-box" type="checkbox" name="type2" value="cat">
-                                <label for="type2">Cat</label><br>
-                                <input class="checked-box" type="checkbox" name="type3" value="rabbit">
-                                <label for="type3">Rabbit</label><br>
-                                <input class="checked-box" type="checkbox" name="type4" value="small & furry">
-                                <label for="type4">Small & Furry</label><br>
-                                <input class="checked-box" type="checkbox" name="type5" value="Horse">
-                                <label for="type5">Horse</label><br>
-                                <input class="checked-box" type="checkbox" name="type6" value="Bird">
-                                <label for="type6">Bird</label><br>
-                                <input class="checked-box" type="checkbox" name="type7" value="scales, fins & other">
-                                <label for="type7">Scales, Fins & Other</label><br>
-                                <input class="checked-box" type="checkbox" name="type8" value="barnyard">
-                                <label for="type8">Barnyard</label><br>
-                        </div>
-                        <div id="searchCoats"></div>
-                        <div id="searchColors"></div>
-                        <div id="searchGenders"></div>
-                <br/><input id="submitSearch" type="submit" value="Search">
-                </form><br/>
-        </div>
+	<div id="searchForm" class="container">
+		<form METHOD="GET" action=".">
+			<div id="searchSpecies" class="input">
+				<h1>Select Your Search Paramaters</h1>
+				<h3>Select A Single Species:</h3>
+				<div class="fields">
+					<input class="checked-box" type="checkbox" name="type1" value="dog">
+					<label for="type1">Dog</label><br>
+					<input class="checked-box" type="checkbox" name="type2" value="cat">
+					<label for="type2">Cat</label><br>
+					<input class="checked-box" type="checkbox" name="type3" value="rabbit">
+					<label for="type3">Rabbit</label><br>
+					<input class="checked-box" type="checkbox" name="type4" value="small & furry">
+					<label for="type4">Small & Furry</label><br>
+					<input class="checked-box" type="checkbox" name="type5" value="Horse">
+					<label for="type5">Horse</label><br>
+					<input class="checked-box" type="checkbox" name="type6" value="Bird">
+					<label for="type6">Bird</label><br>
+					<input class="checked-box" type="checkbox" name="type7" value="scales, fins & other">
+					<label for="type7">Scales, Fins & Other</label><br>
+					<input class="checked-box" type="checkbox" name="type8" value="barnyard">
+					<label for="type8">Barnyard</label><br>
+				</div>
+			</div>
+			<div id="searchCoats"></div>
+			<div id="searchColors"></div>
+			<div id="searchGenders"></div>
+		<div class="button">
+			<input id="submitSearch" class="submit" type="submit" value="Search">
+		</div>
+		</form>
+	</div>
 
 {% endblock %}
