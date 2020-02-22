@@ -16,9 +16,13 @@
   padding-left: 30px;
 }
 
-#search-headline {
-  padding-left: 15px;
+#search {
   padding-bottom: 15px;
+  text-align: center;
+}
+
+#search-headline {
+  display: inline-block
 }
 
 .checked-boxes {
