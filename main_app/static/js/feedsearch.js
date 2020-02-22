@@ -63,11 +63,15 @@ const onSuccess = response => {
 	populateCoats();
 };
 
+/* Appends forms to Search Page */
 function populateCoats() {
 	if (apiResponse.type.coats.length !== 0) {
-		$('#searchCoats').append('<br/><h3>Select A Single Type Of Coat<h3>').addClass('input')
+		$('#searchCoats').append(`
+		<h3>Select A Single Type Of Coat<h3>
+		<div class="fields" id="coatBoxes"></div>
+		`).addClass('input')
 		for (let i=0; i<apiResponse.type.coats.length; i++) {
-			$('#searchCoats').append(`
+			$('#coatBoxes').append(`
 			<input class="coats-box" type="checkbox" name="type1" value="${apiResponse.type.coats[i]}">
 				<label for="type1">${apiResponse.type.coats[i]}</label><br>
 			`)
@@ -78,9 +82,11 @@ function populateCoats() {
 
 function populateColors() {
 	if (apiResponse.type.colors !== 0) {
-		$('#searchColors').append('<br/><h3>Select A Single Color</h3>').addClass('input')
+		$('#searchColors').append(`
+		<h3>Select A Single Color</h3>
+		<div class="fields" id="colorBoxes"></div>`).addClass('input')
 		for (let i=0; i<apiResponse.type.colors.length; i++) {
-			$('#searchColors').append(`
+			$('#colorBoxes').append(`
 			<input class="colors-box" type="checkbox" name="type1" value="${apiResponse.type.colors[i]}">
 				<label for="type1">${apiResponse.type.colors[i]}</label><br>
 			`)
@@ -90,9 +96,12 @@ function populateColors() {
 }
 
 function populateGender() {
-	$('#searchGenders').append('<br/><h3>Select A Single Gender</h3>').addClass('input')
+	$('#searchGenders').append(`
+	<h3>Select A Single Gender</h3>
+	<div class="fields" id="genderBoxes"></div>
+	`).addClass('input')
 	for (let i = 0; i < apiResponse.type.genders.length; i++) {
-		$('#searchGenders').append(`
+		$('#genderBoxes').append(`
 			<input class="gender-box" type="checkbox" name="type1" value="${apiResponse.type.genders[i]}">
 				<label for="type1">${apiResponse.type.genders[i]}</label><br>
 			`)

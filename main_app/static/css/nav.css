@@ -2,9 +2,11 @@
 :root {
   --content-width: 350px;
   --dark-grey: rgb(77, 77, 77);
-  --primary-color: cadetblue;
-  --secondary-color: lightsalmon;
-  --tertiary-color: ;
+  --primary-color: #5F9EA0;
+  --secondary-color: #D6A2AD;
+  --tertiary-color: #EAD2AC;
+  --quaternary-color: #CC90BC;
+  --quinary-color: #89AAE6;
   --button-color-active: wheat;
   --button-color-passive: ;
   --text-primary-color: rgb(77, 77, 77);

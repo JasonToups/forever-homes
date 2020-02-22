@@ -1,3 +1,4 @@
+/* ------- GLOBAL FORM STYLING */
 
 .fields {
   margin-left: 15px;
@@ -16,6 +17,8 @@
   padding-left: 30px;
 }
 
+/* ------- SEARCH */
+
 #search {
   padding-bottom: 15px;
   text-align: center;
@@ -25,6 +28,10 @@
   display: inline-block
 }
 
+#submitSearch {
+  margin-bottom: 10px;
+}
+
 .checked-boxes {
   padding-left: 40px;
 }
@@ -32,6 +39,21 @@
 label {
   font-size: 17px;
 }
+
+#searchSpecies {
+  background-color: var(--secondary-color);
+}
+#searchCoats {
+  background-color: var(--tertiary-color);
+}
+#searchColors {
+  background-color: var(--quaternary-color);
+}
+#searchGenders {
+  background-color: var(--quinary-color);
+}
+
+/* ------- LOGIN */
 
 #id_username {
   width: 95%;
@@ -43,6 +65,7 @@ label {
   font-size: 15px;
 }
 
+/* ------- SIGNUP */
 .helptext{
   font-size: .85em;
   margin-left: 15px;
@@ -57,6 +80,7 @@ label {
   font-size: 15px;
 }
 
+
 /* button */
 .submit {
   font-family: 'Suez One', serif;
@@ -65,6 +89,4 @@ label {
   background-color: var(--button-color-active);
   border-radius: 20px;
   padding: 5px 15px;
-  /* margin-top: 5px;
-  margin-bottom: 5px; */
 }
