@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ProfileForm
-from .models import Profile, Favorites
+from .models import Profile, Favorites, Search
 from django.contrib.auth.models import User
 
 from django.shortcuts import render, redirect

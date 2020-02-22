@@ -13,3 +13,10 @@ class Profile(models.Model):
 class Favorites(models.Model):
     post_id = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favorites')
+
+class Search(models.Model):
+    user = models.IntegerField()
+    type = models.CharField(max_length=50)
+    coat = models.CharField(max_length=50, null=True)
+    color = models.CharField(max_length=50)
+    gender = models.CharField(max_length=50)
