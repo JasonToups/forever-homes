@@ -1,9 +1,20 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ProfileForm
-from .models import Profile
+from .models import Profile, Favorites
+from django.contrib.auth.models import User
 
 from django.shortcuts import render, redirect
+
+
+# adds these for user delete functionality:  
+# from .forms import UserDeleteForm
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render, redirect
+# from django.contrib import messages
+
+
+
 
 # from .forms import LoginFormpi
 
@@ -64,8 +75,11 @@ def detail_profile(request):
     return render(request, 'detail_profile.html', {'form': form})
 
 def delete_profile(request):
-    # return HttpResponse('<h1>Delete Profile!</h1>')
-    return render(request, 'detail_profile.html')
+    u = User.objects.get(pk=request.user.id)
+    u.is_active = False
+    u.save()
+
+    return redirect('main_feed')
 
 def logout(request):
     logout(request)
@@ -86,3 +100,4 @@ def profile(request, username):
 
 def favorites(request):
     return render(request, 'favorites.html')
+

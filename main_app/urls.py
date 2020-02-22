@@ -5,7 +5,7 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     path('users/profile', views.detail_profile, name='detail_profile'),
-    path('users/<int:user_id>/delete/', views.delete_profile, name='delete_profile'),
+    path('users/delete', views.delete_profile, name='delete_profile'),
 
     path('users/intro', views.intro, name='intro'),
     path('users/createprofile/', views.create_profile, name='create_profile'),
