@@ -105,12 +105,12 @@ function createFeed (array) {
           </div>
         </div>
         <div class="post-detail">
-          <p class="pet-detail">Type: ${species}</p>
-          <p class="pet-detail">Breed Primary: ${breedPrimary}</p>
-          <p class="pet-detail">Breed Secondary: ${breedSecondary}</p>
-          <p class="pet-detail">Age: ${age}</p>
-          <p class="pet-detail">Gender: ${gender}</p>
-          <p class="pet-detail">Description: ${description}</p>
+          ${species ? '<p class="pet-detail">Type: ' + species + '</p>' : ''}
+          ${breedPrimary ? '<p class="pet-detail">Breed Primary: ' + breedPrimary + '</p>' : ''}
+          ${breedSecondary ? '<p class="pet-detail">Breed Secondary: ' + breedSecondary + '</p>' : ''}
+          ${age ? '<p class="pet-detail">Age: ' + age + '</p>' : ''}
+          ${gender ? '<p class="pet-detail">Gender: ' + gender + '</p>' : ''}
+          ${description ? '<p class="pet-detail">Description: ' + description + '</p>' : ''}
           <div class="button">
             <a href="${url}" target="_blank"><button class="adopt">Adopt Me</button></a>
           </div>
