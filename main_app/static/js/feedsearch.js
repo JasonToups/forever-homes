@@ -98,38 +98,3 @@ function populateGender() {
                         `)
         }
 }
-
-// $('#submitSearch').on('click', function(evt) {
-//         event.preventDefault();
-//         if ($('.checked-box').siblings(':checked')) {
-//                 let species = ($('.checked-box').siblings(':checked').val());
-//                 let speciesInter = encodeURIComponent(species);
-//                 speciesSearch = `type=${speciesInter}`
-//         }
-//         if ($('.coats-box').is(':checked')) {
-//                 let coat = ($('.coats-box').siblings(':checked').val());
-//                 let coatInter = encodeURIComponent(coat);
-//                 coatSearch = `&coat=${coatInter}`
-//         }
-//         if ($('.colors-box').is(':checked')) {
-//                 let color = ($('.colors-box').siblings(':checked').val());
-//                 let colorInter = encodeURIComponent(color);
-//                 colorSearch = `&color=${colorInter}`
-//         }
-//         if ($('.gender-box').is(':checked')) {
-//                 let gender = ($('.gender-box').siblings(':checked').val());
-//                 let genderInter = encodeURIComponent(gender);
-//                 genderSearch = `&gender=${genderInter}`
-//         }
-//         pushUserSearch();
-// });
-
-// function pushUserSearch() {
-//         if (coatSearch === undefined) {
-//                 userSearch = `${speciesSearch}${colorSearch}${genderSearch}`;
-//         }
-//         else {
-//                 userSearch = `${speciesSearch}${coatSearch}${colorSearch}${genderSearch}`;
-//         }
-//         console.log(userSearch);
-// }
