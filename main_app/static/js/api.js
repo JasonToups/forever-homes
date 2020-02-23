@@ -118,7 +118,7 @@ function createFeed (array) {
               <h2>${name}</h2>
             </div>
             <div class="post-favorite">
-              <img class="favorite" src="../static/images/heart.svg"/>
+              <img class="favorite" src="../static/images/heart-favorite-empty.svg"/>
             </div>
           </div>
           <div class="post-detail">
@@ -151,12 +151,17 @@ function startClickListener() {
       $(detail).toggleClass('show');
     });
     // to favorite pets in the feed
+    // TODO update click function to change the url of the icon
     $(".favorite").click(function(event){
       console.log('You found a favorite pet!');
       const detail = $(event.target).closest('.post').children('.post-image').children('.pet-picture')[0].src;
       console.log(detail)
       // saving the url to the user object to look up the pet object id from the user.pets
       user.favoriteImage = detail;
+      // TODO wrap getFavorite in an if/else statement to update the event.target.src
+      console.log(event.target.src)
+      // if getFavorite returns false, make the heart icon empty.
+      // if getFavorite returns true, make the heart icon filled.
       getFavorite(user.pets.animals, user.favoriteImage)
     });
     $("#favorites").click(function(event){
@@ -169,18 +174,29 @@ function startClickListener() {
 // This finds the whole pet object, and saves it to User
 function getFavorite(object, value){
   console.log('looking for favorite pet');
+  // Checks if the current pet exists in the favorites pet array.
+  for (var j = 0; j < user.favoriteDogObject.length; j++){
+    if (user.favoriteDogObject[j].photos[0].large === value){
+      console.log('that pet is already a favorite')
+      user.favoriteDogObject.splice(j, 1)
+      console.log('removing favorite')
+      console.log(user.favoriteDogObject)
+      return (false)
+    }
+  }
+  // If the current pet does not exist in the favorite pet array, it's added to the array.
   for (var i = 0; i < object.length; i++){
     if (object[i].photos[0].large === value){
       console.log('pet found!')
       user.favoriteDogId.push(object[i].id);
       user.favoriteDogObject.push(object[i]);
+      return(true)
     }
   }
   console.log(user.favoriteDogObject);
 }
 
 function showFavorites(){
-  // $('.post').remove();
   document.getElementById("myLinks").style.display = "none"
   createFeed(user.favoriteDogObject);
 }
