@@ -2,9 +2,11 @@
 :root {
   --content-width: 350px;
   --dark-grey: rgb(77, 77, 77);
-  --primary-color: cadetblue;
-  --secondary-color: lightsalmon;
-  --tertiary-color: ;
+  --primary-color: #5F9EA0;
+  --secondary-color: #D6A2AD;
+  --tertiary-color: #EAD2AC;
+  --quaternary-color: #CC90BC;
+  --quinary-color: #89AAE6;
   --button-color-active: wheat;
   --button-color-passive: ;
   --text-primary-color: rgb(77, 77, 77);
@@ -17,6 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -27,6 +30,10 @@ body {
 
 .container {
   margin-top: calc(var(--nav-height) + 15px);
+  width: var(--content-width);
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .input{
@@ -34,9 +41,21 @@ body {
   background-color: var(--secondary-color);
   border-radius: 20px;
   color: var(--text-primary-color);
-  padding-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
+  padding: 10px;
+}
+
+.center-text{
+  text-align: center;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: var(--text-primary-color);
+  margin: 10px 0px 0px 0px;
 }
 
 /* Media Queries for Responsive Nav */
@@ -51,9 +70,9 @@ body {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: absolute;}
+  .topnav.responsive {position: fixed;}
   .topnav.responsive a.icon {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
   }
@@ -98,6 +117,7 @@ body {
 /* Style the hamburger menu */
 .topnav a.icon {
   background: transparent;
+  margin-top: 3px;
   margin-right: 7px;
   display: block;
   font-size: 23px;
@@ -122,12 +142,15 @@ body {
 .topnav a.active {
   background-color: var(--primary-color);
   color: white;
+  margin-left: 55px;
 }
 
 .logo {
-  width: 50px;
-  padding-left: 10px;
+  width: 55px;
+  height: var(--nav-height);
   padding-top: 7px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   background-color: var(--primary-color);
   position: absolute;
 }
@@ -135,21 +158,10 @@ body {
 h1 {
   margin-bottom: 0px;
   display: flex;
-  position: relative;
 }
 
 .header {
   font-size: 20px;
   text-decoration: none;
   width: 100%;
-}
-
-
-.button{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  color: var(--text-primary-color)
 }
