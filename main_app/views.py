@@ -86,9 +86,6 @@ def intro(request):
     print('intro')
     return render(request, 'intro.html')
 
-    # return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
-    # return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
-
 def create_profile(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST)
@@ -124,20 +121,6 @@ def detail_profile(request):
     return render(request, 'detail_profile.html', {'form': form})
 
 
-# def change_password(request):
-#     if request.method == 'POST':
-#         form = PasswordChangeForm()
-
-
-
-# def changemypassword(request):
-#     # profile = Profile.objects.get(user=request.user)
-#     # if request.method =='POST':
-#     #     form = profile_changemypassword(request.POST, instance=profile)
-#     return render(request, 'password_change_form.html')
-#     # path('registration/password_change_form.html', views.password_change, name=change_password),
-
-
 def delete_profile(request):
     u = User.objects.get(pk=request.user.id)
     u.is_active = False
@@ -154,55 +137,7 @@ def logout_success(request):
         logout_success(request)
         return redirect('/')
 
-# from cat-collectr
-def profile(request, username):
-        user = User.objects.get(username=username)
-
-        # cats= Cat.objects.filter(user=user)
-        return render(request, 'profile.html', {'username': username})
-        # return render(request, 'profile.html', {'username': username, 'cats': cats})
-
 def favorites(request):
     return render(request, 'favorites.html')
 
 
-# random notes:  
-
-# adds these for user delete functionality:  
-# from .forms import UserDeleteForm
-# from django.contrib.auth.decorators import login_required
-# from django.shortcuts import render, redirect
-# from django.contrib import messages
-
-
-
-
-# from .forms import LoginFormpi
-
-# from django.contrib
-
-
-# taking a web request and returns a web response.
-# fetch objects from database
-# modify those objects
-# render forms
-# return HTML
-
-
-
-
-# removed to test simplified routes:
-# def password_change(request):
-
-# #     # password = 
-
-# #     # if request.method == 'POST':
-# #     #     form = PasswordChangeForm(data=request.POST, user=request.user)
-# #     #     if form.is_valid():
-# #     #         form.save()
-# #     #         return redirect('password_change_success.html')
-# #     # else:
-# #     #     form = PasswordChangeForm(user=request.user)
-# #     #     args = {'form': form}
-# #     #     return render(request, 'password_change_form.html', args)
-#     return render(request, 'password_change_form.html')

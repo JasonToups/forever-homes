@@ -17,17 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from django.contrib.auth import views as auth_views
-# from django.urls import url
-# from . import views
-# from django.contrib.auth.views import login, logout
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_app.urls')),
     path('accounts/', include('accounts.urls')),
-    # path('change-password/', auth_views.PasswordChangeView.as_view()),
-    #     path(
-    #     'change-password/',
-    #     auth_views.PasswordChangeView.as_view(template_name='change-password.html'),
-    # ),
+
 ]
