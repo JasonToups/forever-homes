@@ -75,12 +75,12 @@ function filterPhotos () {
   }
   user.pets.animals = array;
   console.log(user.pets);
-  createFeed(user.pets.animals);
+  createFeed(user.pets.animals, "main");
 }
 
 // TODO If nothing is returned from the pet search, append a message to the dom stating that nothing was returned and include a button that links back to the search page.
 // Pass in a param, to use for both Main Feed & Favorites Feed
-function createFeed (array) {
+function createFeed (array, feedType) {
   $('.post').remove();
   if (!array) {
     let template = `
@@ -118,7 +118,7 @@ function createFeed (array) {
               <h2>${name}</h2>
             </div>
             <div class="post-favorite">
-              <img class="favorite" src="../static/images/heart-favorite-empty.svg"/>
+              ${feedType === "main" ? '<img class="favorite" src="../static/images/heart-favorite-empty.svg"/>': feedType === "favorites" ? '<img class="favorite" src="../static/images/heart-favorite-filled.svg"/>':''}
             </div>
           </div>
           <div class="post-detail">
@@ -162,7 +162,11 @@ function startClickListener() {
       console.log(event.target.src)
       // if getFavorite returns false, make the heart icon empty.
       // if getFavorite returns true, make the heart icon filled.
-      getFavorite(user.pets.animals, user.favoriteImage)
+      if (getFavorite(user.pets.animals, user.favoriteImage)) {
+        event.target.src = "../static/images/heart-favorite-filled.svg"
+      } else {
+        event.target.src = "../static/images/heart-favorite-empty.svg"
+      }
     });
     $("#favorites").click(function(event){
       
@@ -198,7 +202,7 @@ function getFavorite(object, value){
 
 function showFavorites(){
   document.getElementById("myLinks").style.display = "none"
-  createFeed(user.favoriteDogObject);
+  createFeed(user.favoriteDogObject, "favorites");
 }
 
 /* --------------- Handles unsuccessful Ajax Request */

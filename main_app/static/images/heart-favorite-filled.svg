@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="35px" height="21px" viewBox="0 0 35 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="47px" height="21px" viewBox="0 0 47 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
     <title>heart-favorite-filled</title>
     <desc>Created with Sketch.</desc>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="heart-favorite-filled" transform="translate(-3.000000, -13.000000)" stroke="#4D4D4D" stroke-width="2">
             <g transform="translate(4.000000, 14.000000)">
-                <line x1="12.691358" y1="6.55" x2="4.34567901" y2="4.15" id="Line-2" fill="#D8D8D8" stroke-linecap="round"></line>
-                <path d="" id="Line-2-Copy" fill="#D8D8D8" stroke-linecap="round"></path>
-                <line x1="14" y1="9.09578072" x2="-2.84217094e-14" y2="9.09578072" id="Line-2-Copy-2" fill="#D8D8D8" stroke-linecap="round"></line>
-                <path d="" id="Line-2" fill="#D8D8D8" stroke-linecap="round"></path>
-                <path d="" id="Line-2-Copy" fill="#D8D8D8" stroke-linecap="round"></path>
-                <path d="" id="Line-2-Copy-2" fill="#D8D8D8" stroke-linecap="round"></path>
                 <path d="M22.5219207,1.81644526 C17.3485132,-2.32072008 12,1.36350813 12,5.35759141 C12,9.35167468 22.5219207,18.1868933 22.5219207,18.1868933 L23.3206012,17.4932526 C25.7682652,15.3318962 33,8.66611836 33,5.35759141 C33,1.37510526 27.6939982,-2.32072005 22.5219207,1.81644526 Z" id="Heart-Copy" fill="#4D4D4D" fill-rule="nonzero"></path>
+                <path d="M12.691358,6.55 L4.34567901,4.15 M15,11.0957807 L4.34567901,13.75 M14,9.09578072 L0,9.09578072" id="Combined-Shape" fill="#D8D8D8" stroke-linecap="round"></path>
+                <path d="M42.345679,6.55 L34,4.15 M44.654321,11.0957807 L34,13.75 M43.654321,9.09578072 L29.654321,9.09578072" id="Combined-Shape" fill="#D8D8D8" stroke-linecap="round" transform="translate(37.327160, 8.950000) scale(-1, 1) translate(-37.327160, -8.950000) "></path>
             </g>
         </g>
     </g>
