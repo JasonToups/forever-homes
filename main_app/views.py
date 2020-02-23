@@ -56,15 +56,17 @@ def create_profile(request):
 def main_feed(request):
     return render(request, 'main_feed.html')
 
+
+# uses adamnfish method https: // stackoverflow.com/questions/5895588/django-multivaluedictkeyerror-error-how-do-i-deal-with-it
 def feed_search(request):
     if request.method == 'POST':
-        searchUser = request.user
-        type = request.POST['type1']
-        coat = request.POST['type2']
-        color = request.POST['type3']
-        gender = request.POST['type4']
-        searchFields = Search(user=searchUser, type=type, coat=coat, color=color, gender=gender)
-        searchFields.save()
+            searchUser = request.user
+            type = request.POST['type1']
+            coat = request.POST.get('type2', False)
+            color = request.POST['type3']
+            gender = request.POST['type4']
+            searchFields = Search(user=searchUser, type=type, coat=coat, color=color, gender=gender)
+            searchFields.save()
     return render(request, 'feedsearch.html')
 
 
