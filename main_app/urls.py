@@ -14,8 +14,8 @@ urlpatterns = [
     path('users/feedsearch', views.feed_search, name='feed_search'),
     path('users/logout/', views.logout, name='logout'),
 
-    path('users/password_change_form/', views.password_change, name='password_change'),
-    path('users/password_change_success/', views.password_change_success, name='password_change_success'),
+    # path('users/password_change_form/', views.password_change, name='password_change'),
+    # path('users/password_change_success/', views.password_change_success, name='password_change_success'),
 
     path('users/logoutsuccess', views.logout_success, name='logout_success'),
     path('users/favorites', views.favorites, name='favorites'),

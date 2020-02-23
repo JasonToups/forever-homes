@@ -17,9 +17,21 @@ from django.contrib.auth import update_session_auth_hash
 # it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
     return HttpResponse('<h1>Homepage!</h1>')
-
-
     # return render(request, 'index')
+
+
+class CustomPasswordChangeView(PasswordChangeView):
+    @property
+    def success_url(self):
+        print ('start')
+        return 'main_feed.html'
+custom_password_change = login_required(CustomPasswordChangeView.as_view())
+
+
+
+
+
+
 
 def register(request):
     if request.method == 'POST':
@@ -55,15 +67,17 @@ def login_view(request):
         form = LoginForm()
         return render(request, 'login.html', {'form':form})
 
-
+# test to see if this is working:  
 def change_password(request):
     if request.method == 'POST':
-        form = PasswordChangeForm(request.POST, user=request.user)
 
+        form = PasswordChangeForm(request.POST, user=request.user)
+        console.log(form)
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
             return redirect('/users/password_change_success.html')
+            # put in a url page here.  similar to line 35 in views.  
         else:
             form = PasswordChangeForm(user=request.user)
 

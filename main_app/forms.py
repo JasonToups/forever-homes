@@ -21,10 +21,10 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ('first_name', 'last_name', 'email')
 
-class PasswordChangeForm(forms.ModelForm):
-    class Meta: 
-        model = User
-        fields = ('password',)
+# class PasswordChangeForm(forms.ModelForm):
+#     class Meta: 
+#         model = User
+#         fields = ('password',)
 
 
         # main_app/forms.py
