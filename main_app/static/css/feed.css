@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+/* .post {
+  
+} */
+
 /* The image for a post */
 .pet-picture {
   width: var(--content-width);

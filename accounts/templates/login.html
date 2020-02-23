@@ -3,19 +3,21 @@
 
 {% block content %}
 
-<div class="container input">
-	<div class="login">
-		<h2>Login</h2>
+<div id="login" class="container">
+	<div class="login headline">
+		<h2 class="headline-text">Login</h2>
+	</div>
+	<div class="input">
 		<div class="fields">
 			<form method="POST" action=".">
 				{% csrf_token %}
 				{{ form.as_p }}
-			</div>
-			<div class="button">
-				<input class="submit" type="submit" value="Login">
-			</form>
 		</div>
 	</div>
+</div>
+<div class="button">
+	<input class="submit" type="submit" value="Login">
+</form>
 </div>
 
 {% endblock %}
