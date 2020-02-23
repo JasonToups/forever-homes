@@ -5,7 +5,8 @@
                 <br /><br />
                 <h1>Select Your Search Paramaters</h1><br/>
                 <h3>Select A Single Species:</h3>
-                <form METHOD="GET" action=".">
+                <form method="POST" action="">
+                        {% csrf_token %}
                         <div id=searchSpecies>
                                 <input class="checked-box" type="checkbox" name="type1" value="dog">
                                 <label for="type1">Dog</label><br>

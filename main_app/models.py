@@ -15,8 +15,8 @@ class Favorites(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favorites')
 
 class Search(models.Model):
-    user = models.IntegerField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='search')
     type = models.CharField(max_length=50)
-    coat = models.CharField(max_length=50, null=True)
+    coat = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
     gender = models.CharField(max_length=50)

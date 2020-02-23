@@ -57,6 +57,14 @@ def main_feed(request):
     return render(request, 'main_feed.html')
 
 def feed_search(request):
+    if request.method == 'POST':
+        searchUser = request.user
+        type = request.POST['type1']
+        coat = request.POST['type2']
+        color = request.POST['type3']
+        gender = request.POST['type4']
+        searchFields = Search(user=searchUser, type=type, coat=coat, color=color, gender=gender)
+        searchFields.save()
     return render(request, 'feedsearch.html')
 
 
