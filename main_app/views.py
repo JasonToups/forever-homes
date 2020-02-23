@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import ProfileForm
 from .models import Profile, Favorites, Search
 from django.contrib.auth.models import User
+from django.core import serializers
 
 from django.shortcuts import render, redirect
 
@@ -26,12 +27,6 @@ from django.shortcuts import render, redirect
 # modify those objects
 # render forms
 # return HTML
-
-
-def index(request):
-    return render(request, 'index.html', {})
-    # return HttpResponse('<h1>Account Homepage!</h1>')
-
 
 def intro(request):
     print('intro')
@@ -67,8 +62,12 @@ def feed_search(request):
             searchFields.save()
     return render(request, 'feedsearch.html')
 
+
+# credit to https: // dev-yakuza.github.io/en/django/response-model-to-json/
 def searchinfo(request):
-    
+    userSearch = Search.objects.all()
+    data_list = serializers.serialize('json', userSearch)
+    return HttpResponse(data_list, content_type='text/json-comment-filtered')
 
 
 # I've added this to make sure a request directs to the detail_profile with the necessary elements:

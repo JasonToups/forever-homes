@@ -27,10 +27,24 @@ function getToken() {
   });
 }
 
+const searchSuccess = response => {
+  console.log(response);
+};
+
 // After receiving a token, it is saved in the User object.
 // Then we use the token to request the array of adoption listings
 const onSuccessToken = response => {
   user.token = response;
+  $.ajax({
+    method: 'GET',
+    url: 'searchinfo',
+    success: searchSuccess,
+    error: err => console.log(err),
+  });
+
+  // on success
+  // if data exists from call, URI encode, concatenate and serve as argumenet for 'go pets'
+  // else run the thing below
   getPets("status=adoptable&type=dog&limit=100");
 };
 
