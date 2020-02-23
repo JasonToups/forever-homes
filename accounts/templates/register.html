@@ -3,17 +3,21 @@
 
 {% block content %}
 
-<div class="container input">
-	<h2>Register</h2>
-	<div class="fields">
-		<form method="POST" action="{% url 'register' %}">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<div class="button">
-				<input class="submit" type="submit" value="Register">
-			</div>
-		</form>
+<div class="container">
+	<div class="headline">
+		<h2 class="headline-text">Register</h2>
 	</div>
+	<div class="input">
+		<div class="fields">
+			<form method="POST" action="{% url 'register' %}">
+				{% csrf_token %}
+				{{ form.as_p }}
+		</div>
+	</div>
+</div>
+<div class="button">
+	<input class="submit" type="submit" value="Register">
+</form>
 </div>
 
 {% endblock %}
