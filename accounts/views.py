@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
+# from accounts.forms import PasswordChangeForm
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import auth
 from main_app.models import Profile
 from main_app.views import detail_profile
+from main_app.views import password_change
+from django.contrib.auth import update_session_auth_hash
+
+
+# from main_app.views import password_change_form
 
 # it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
@@ -47,6 +54,56 @@ def login_view(request):
     else:
         form = LoginForm()
         return render(request, 'login.html', {'form':form})
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('/users/password_change_success.html')
+        else:
+            form = PasswordChangeForm(user=request.user)
+
+            args = {'form': form}
+            return render(request, '/accounts/change_password.html', args)
+
+# def change_password_link(request):
+#     return render(request, 'password_change_form.html')
+
+
+
+
+# this one
+# def change_password(request):
+#     if request.method == 'POST':
+#         form = PasswordChangeForm(data=request.POST, user=request.user)
+
+#         if form.is_valid():
+#             form.save()
+#             return render(request, 'password_change_success.html')
+
+#     else:
+#         form = PasswordChangeForm(user=request.user)
+#         args = {'form': form}
+#         return render(request, 'password_change_form.html', args)
+
+
+
+# def change_password(request):
+#     if request.method == 'POST':
+#         form =PasswordChangeForm(request.POST, instance=request.user)
+
+#         if  form.is_valid():
+#             form.save()
+#             return redirect('/users/password_change_success')
+
+
+
+
+
 
 def logout_view(request):
     auth.logout(request)
