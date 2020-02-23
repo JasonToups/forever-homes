@@ -4,6 +4,7 @@ from .forms import ProfileForm
 from .models import Profile, Favorites, Search
 from django.contrib.auth.models import User
 from django.core import serializers
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, redirect
 
@@ -65,10 +66,12 @@ def feed_search(request):
 
 # credit to https: // dev-yakuza.github.io/en/django/response-model-to-json/
 def searchinfo(request):
-    userSearch = Search.objects.all()
-    data_list = serializers.serialize('json', userSearch)
-    return HttpResponse(data_list, content_type='text/json-comment-filtered')
-
+    print(request.user.id)
+    waffle = request.user.id
+    if request.method == 'GET':
+        userSearch = Search.objects.filter(user_id=waffle)
+        data_list = serializers.serialize('json', userSearch)
+        return HttpResponse(data_list, content_type='text/json-comment-filtered')
 
 # I've added this to make sure a request directs to the detail_profile with the necessary elements:
 
