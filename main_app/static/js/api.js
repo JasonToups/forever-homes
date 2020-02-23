@@ -78,68 +78,67 @@ function filterPhotos () {
   createFeed(user.pets.animals);
 }
 
+// TODO If nothing is returned from the pet search, append a message to the dom stating that nothing was returned and include a button that links back to the search page.
 // Pass in a param, to use for both Main Feed & Favorites Feed
 function createFeed (array) {
-  for (i = 0; i < array.length; i++){
-    let name = array[i].name;
-    let image = array[i].photos[0].large;
-    let species = array[i].species;
-    let breedPrimary = array[i].breeds.primary;
-    let breedSecondary = array[i].breeds.secondary;
-    let age = array[i].age;
-    let gender = array[i].gender;
-    let description = array[i].description;
-    let url = array[i].url;
-    const template = `
-    <div class="post">
-      <div class="post-image">
-        <img class="pet-picture" src="${image}"/>
+  $('.post').remove();
+  if (!array) {
+    let template = `
+      <div class="headline">
+        <h2 class="headline-text">Try Again!</h2>
       </div>
-      <div class = post-content>
-        <div class="post-header">
-          <div class="post-name">
-            <h2>${name}</h2>
+      <div class="input center-text">
+        <p>Your search returned no pets.</p>
+        <p>Update your search filter and try again.</p>
+      </div>
+      <div class="button">
+        <a href="/users/feedsearch" class="submit">Search</a>
+      </div>
+    `
+    $('.container').prepend(template);
+  } else {
+    for (i = 0; i < array.length; i++){
+      let name = array[i].name;
+      let image = array[i].photos[0].large;
+      let species = array[i].species;
+      let breedPrimary = array[i].breeds.primary;
+      let breedSecondary = array[i].breeds.secondary;
+      let age = array[i].age;
+      let gender = array[i].gender;
+      let description = array[i].description;
+      let url = array[i].url;
+      let template = `
+      <div class="post">
+        <div class="post-image">
+          <img class="pet-picture" src="${image}"/>
+        </div>
+        <div class = post-content>
+          <div class="post-header">
+            <div class="post-name">
+              <h2>${name}</h2>
+            </div>
+            <div class="post-favorite">
+              <img class="favorite" src="../static/images/heart.svg"/>
+            </div>
           </div>
-          <div class="post-favorite">
-            <img class="favorite" src="../static/images/heart.svg"/>
+          <div class="post-detail">
+            ${species ? '<p class="pet-detail">Type: ' + species + '</p>' : ''}
+            ${breedPrimary ? '<p class="pet-detail">Breed Primary: ' + breedPrimary + '</p>' : ''}
+            ${breedSecondary ? '<p class="pet-detail">Breed Secondary: ' + breedSecondary + '</p>' : ''}
+            ${age ? '<p class="pet-detail">Age: ' + age + '</p>' : ''}
+            ${gender ? '<p class="pet-detail">Gender: ' + gender + '</p>' : ''}
+            ${description ? '<p class="pet-detail">Description: ' + description + '</p>' : ''}
+            <div class="button">
+              <a href="${url}" target="_blank"><button class="adopt">Adopt Me</button></a>
+            </div>
           </div>
         </div>
-        <div class="post-detail">
-          ${species ? '<p class="pet-detail">Type: ' + species + '</p>' : ''}
-          ${breedPrimary ? '<p class="pet-detail">Breed Primary: ' + breedPrimary + '</p>' : ''}
-          ${breedSecondary ? '<p class="pet-detail">Breed Secondary: ' + breedSecondary + '</p>' : ''}
-          ${age ? '<p class="pet-detail">Age: ' + age + '</p>' : ''}
-          ${gender ? '<p class="pet-detail">Gender: ' + gender + '</p>' : ''}
-          ${description ? '<p class="pet-detail">Description: ' + description + '</p>' : ''}
-          <div class="button">
-            <a href="${url}" target="_blank"><button class="adopt">Adopt Me</button></a>
-          </div>
-        </div>
       </div>
-    </div>
-    `;
-    $('#list').append(template);
+      `;
+      $('#list').append(template);
+    }
   }
   startClickListener()
-}
-
-/* TODO This function may be redundant, delete later */
-function createDetail(){
-  console.log(user.selectedDog);
-  console.log(user.selectedDog.species);
-  let species = user.selectedDog.species;
-  console.log(user.selectedDog.breeds.primary);
-  let primary = user.selectedDog.breeds.primary;
-  console.log(user.selectedDog.breeds.secondary);
-  let secondary = user.selectedDog.breeds.secondary;
-  console.log(user.selectedDog.age);
-  let age = user.selectedDog.age;
-  console.log(user.selectedDog.gender);
-  let gender = user.selectedDog.gender;
-  console.log(user.selectedDog.description);
-  let description = user.selectedDog.description;
-  console.log(user.selectedDog.url);
-  let url = user.selectedDog.url;
 }
 
 function startClickListener() {
@@ -181,7 +180,7 @@ function getFavorite(object, value){
 }
 
 function showFavorites(){
-  $('.post').remove();
+  // $('.post').remove();
   document.getElementById("myLinks").style.display = "none"
   createFeed(user.favoriteDogObject);
 }
