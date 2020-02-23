@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="53px" height="46px" viewBox="0 0 53 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #AAAAAA;">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>heart-favorite-filled</title>
+    <desc>Created with Sketch.</desc>
+    <g id="heart-favorite-filled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#AAAAAA" x="0" y="0" width="53" height="46"></rect>
+        <g id="final-logo-unflattened" transform="translate(3.000000, 0.904219)"></g>
+        <g id="whiskers" transform="translate(4.000000, 18.000000)" fill="#D8D8D8" stroke="#4D4D4D" stroke-linecap="round" stroke-width="2">
+            <g id="Group-Copy" transform="translate(-0.000000, 0.000000)">
+                <line x1="12.691358" y1="2.55" x2="4.34567901" y2="0.15" id="Line-2"></line>
+                <line x1="15" y1="9.40421928" x2="4.34567901" y2="6.75" id="Line-2-Copy" transform="translate(9.845679, 8.250000) scale(1, -1) translate(-9.845679, -8.250000) "></line>
+                <line x1="14" y1="5.09578072" x2="1.98951966e-13" y2="5.09578072" id="Line-2-Copy-2"></line>
+            </g>
+            <g id="Group-Copy" transform="translate(37.000000, 5.000000) scale(-1, 1) translate(-37.000000, -5.000000) translate(29.000000, 0.000000)">
+                <line x1="12.691358" y1="2.55" x2="4.34567901" y2="0.15" id="Line-2"></line>
+                <line x1="15" y1="9.40421928" x2="4.34567901" y2="6.75" id="Line-2-Copy" transform="translate(9.845679, 8.250000) scale(1, -1) translate(-9.845679, -8.250000) "></line>
+                <line x1="14" y1="5.09578072" x2="1.98951966e-13" y2="5.09578072" id="Line-2-Copy-2"></line>
+            </g>
+        </g>
+        <path d="M26.5219207,15.8164453 C21.3485132,11.6792799 16,15.3635081 16,19.3575914 C16,23.3516747 26.5219207,32.1868933 26.5219207,32.1868933 L27.3206012,31.4932526 C29.7682652,29.3318962 37,22.6661184 37,19.3575914 C37,15.3751053 31.6939982,11.6792799 26.5219207,15.8164453 Z" id="Heart" stroke="#4D4D4D" stroke-width="2" fill="#4D4D4D" fill-rule="nonzero"></path>
+    </g>
+</svg>
