@@ -105,8 +105,17 @@ function populateGender() {
 			<input class="gender-box" type="checkbox" name="type4" value="${apiResponse.type.genders[i]}">
 				<label for="type1">${apiResponse.type.genders[i]}</label><br>
 			`)
+		}
+		populateButton();
 	}
-}
+	
+	function populateButton() {
+	$('#searchGenders').after(`
+		<div class="button">
+		<input id="submitSearch" class="submit" type="submit" value="Search">
+		</div>
+	`)
+	}
 
 // $('#submitSearch').on('click', function(evt) {
 // 	window.location.href = 'http://localhost:8000/users/mainfeed';

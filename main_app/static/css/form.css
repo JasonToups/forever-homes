@@ -81,6 +81,49 @@ label {
 }
 
 
+/* ------ Profile */
+#id_first_name {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_last_name {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_email {
+  width: 95%;
+  font-size: 15px;
+}
+
+#profile-buttons{
+  background-color: var(--secondary-color);
+}
+
+#change-password{
+  background-color: var(--quinary-color);  
+}
+#delete-profile{
+  background-color: var(--quaternary-color);  
+}
+
+/* ------ Update Profile */
+#id_old_password {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_new_password1 {
+  width: 95%;
+  font-size: 15px;
+}
+#id_new_password2 {
+  width: 95%;
+  font-size: 15px;
+}
+
+
 /* button */
 .submit {
   font-family: 'Suez One', serif;
