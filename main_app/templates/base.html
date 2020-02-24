@@ -29,7 +29,6 @@
         <!-- Navigation links (hidden by default) -->
         <div id="myLinks">
             {% if user.is_authenticated %}
-                Welcome {{ user.username }}
                 <a class="menu" href="/users/mainfeed">Pet Feed</a>
                 <a class="menu" href="/users/feedsearch">Search</a>
                 <a class="menu" id="favorites" href="#">Favorites</a>
