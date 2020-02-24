@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
-
-
 {% load static %}
-
-
 {% block content %}
-<!-- <h1 class="topspace"></h1> -->
 
-<h2>Profile</h2>
-        <form method="POST" action="{% url 'detail_profile'%}">
-                {% csrf_token %}
-                {{ form.as_p }}
-        <input type="submit" value="Save">
-        </form>
-
-        <a href="{% url 'delete_profile' %}">Delete Profile</a>
-</br>
-        <a href="{% url 'password_change' %}">Change my password</a>
-
-                        <!-- /users/changepassword -->
+<div class="container">
+	<div class="headline">
+		<h2 class="headline-text">Profile</h2>
+	</div>
+	<div class="input">
+		<div class="fields">
+			<form method="POST" action="{% url 'detail_profile'%}">
+			{% csrf_token %}
+			{{ form.as_p }}
+		</div>
+	</div>
+</div>
+<div class="button">
+	<input class="submit" type="submit" value="Save">
+</div>
+<div class="button">
+	<a id="change-password"class="submit" href="{% url 'password_change' %}">Change Password</a>
+</div>
+<div class="button">
+	<a id="delete-profile"class="submit" href="{% url 'delete_profile' %}">Delete Profile</a>
+</div>
+</form>
 
 {% endblock %}

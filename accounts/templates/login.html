@@ -9,9 +9,9 @@
 	</div>
 	<div class="input">
 		<div class="fields">
-            {% if error %}
-                <h2>{{error}}</h2>
-            {% endif %}
+				{% if error %}
+					<h2>{{error}}</h2>
+				{% endif %}
 			<form method="POST" action=".">
 				{% csrf_token %}
 				{{ form.as_p }}
