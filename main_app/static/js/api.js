@@ -27,11 +27,44 @@ function getToken() {
   });
 }
 
+let userSearchString;
+
+const searchSuccess = response => {
+  console.log('response', response)
+  if (response.length <= 0) {
+    userSearchString = 'status=adoptable&type=dog&limit=100';
+  }
+  else {
+    let type = response[0].fields.type;
+    let coat = response[0].fields.coat;
+    let color = response[0].fields.color;
+    let gender = response[0].fields.gender
+    if (coat == 'False') {
+      searchNoCoat = `status=adoptable&type=${type}&color=${color}&gender=${gender}&limit=100`;
+      // console.log('nocoat',searchNoCoat)
+      userSearchString = encodeURI(searchNoCoat);
+      console.log('nocoat', userSearchString);
+    }
+    else {
+      searchWithCoat = `status=adoptable&type=${type}&coat=${coat}&color=${color}&gender=${gender}&limit=100`;
+      // console.log('withcoat',searchWithCoat)
+      userSearchString = encodeURI(searchWithCoat);
+      console.log('withcoat', userSearchString);
+    }
+  }
+  getPets(userSearchString);
+};
+
 // After receiving a token, it is saved in the User object.
 // Then we use the token to request the array of adoption listings
 const onSuccessToken = response => {
   user.token = response;
-  getPets("status=adoptable&type=dog&limit=100");
+  $.ajax({
+    method: 'GET',
+    url: 'searchinfo',
+    success: searchSuccess,
+    error: err => console.log(err),
+  });
 };
 
 // API request for getting pet adoption listings
@@ -44,9 +77,9 @@ function getPets(searchString){
       'Authorization': user.token.token_type + ' ' + user.token.access_token,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    data: requestBody,
-    dataType: 'json',
-    processData: false,
+    // data: requestBody,
+    // dataType: 'json',
+    // processData: false,
     success: onSuccessPets,
     error: onErrorPets
   });
