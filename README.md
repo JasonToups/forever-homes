@@ -43,6 +43,8 @@ In addition to registering an account, users are asked to create a Profile where
 
 ## Contributors
 • Jason Toups / Web Developer - [Github](https://github.com/jasonToups)
+
 • Gustav Pastorino / Web Developer - [Github](https://github.com/gpastorino)
+
 • Jonathan Crepeau / Web Developer - [Github](https://github.com/jonathan-crepeau)
 
