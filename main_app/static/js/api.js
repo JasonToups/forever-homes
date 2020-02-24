@@ -250,6 +250,7 @@ function getFavorite(object, value){
   // console.log(user.favoriteDogObject);
 }
 
+
 function showFavorites(){
   document.getElementById("myLinks").style.display = "none"
   createFeed(user.favoriteDogObject, "favorites");

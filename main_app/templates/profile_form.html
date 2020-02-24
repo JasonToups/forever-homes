@@ -3,11 +3,11 @@
 
 {% block content %}
 <div class="container">
-    <h2>Create Your Profile:</h2>
-    <form method="POST" action="{% url 'create_profile' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Create Profile">
-    </form>
+	<h2>Create Your Profile:</h2>
+	<form method="POST" action="{% url 'create_profile' %}">
+		{% csrf_token %}
+		{{ form.as_p }}
+	<input type="submit" value="Create Profile">
+	</form>
 </div>
 {% endblock %}
