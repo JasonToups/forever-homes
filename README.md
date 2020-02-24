@@ -36,4 +36,13 @@ In addition to registering an account, users are asked to create a Profile where
 ## Wireframes
 ![Initial Wireframe](https://lh3.googleusercontent.com/-8ljOop5beU2IJgsiy6Xjb6RP2jemh6xfwFc8GfeBx5zprGbjOHFvuyq3zzetNISRBxsvE2l5YtmJAXTW-XPDUkcmIqw77ZYtosd-cDXu_kXgc94s2vK5xbLHo_hp-7pODJl_BApCG0UpJ8D102KesWAeq-egT-gTS-vPyfdL0AfDD0C1H489DCTvOgOUKZ5KaAF7UVRWmQiDdq3oN_nBYfoN-e7sLxG7WgHfixHxFurPxaFkfphhJhnvBud7vXkXtI4Tj5er_tbkL3BNaF51NVw_Mred2l2ojue52xflSPxDoFYTqIpordIvsVk9qxZvwcJtRv1l7H8fQtTWx2gapLcliPvTsMN-ull4LWzFp-oibIJ1VeEsPWBEUqtL44XQEQusQ3aIucp3bjzD9pzdi6bEQCMPibxW55OMq6MsxZK_Fc4JoQTkS06i1vwD02TsB-bvznx-ZBMMkR7oLrNvTflVMb8e-MBhmJk2nb66X8Ndhpp5_nY1c-KX2B5EMkS5SbobstI39W5FmsrWK0Tg-PGuL3ZFfCFreCu5WFqBkuQIzy0hTMM2EG-4rdyVWP8-aQMW_yFBQ_QyPKb96IRg2vPsotH6qplHOZas_9L8cTs6xauzgkM7nrdQnU036lPjQWGBP2CHkQTb1jQmFnXkW7PH4r_hPlXlY0dYdrrYlRC6JEhi1eTIA=w1018-h1356-no)
 
-## Moving Forward
+## User Story
+
+## Looking Ahead
+
+
+## Contributors
+• Jason Toups / Web Developer - [Github](https://github.com/jasonToups)
+• Gustav Pastorino / Web Developer - [Github](https://github.com/gpastorino)
+• Jonathan Crepeau / Web Developer - [Github](https://github.com/jonathan-crepeau)
+
