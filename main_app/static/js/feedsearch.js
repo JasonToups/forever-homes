@@ -21,6 +21,13 @@ $('#searchColors').on('change', '.colors-box', function(evt) {
 	}
 });
 
+let genderLimit=1;
+$('#searchGenders').on('change', '.gender-box', function(evt) {
+	if ($(this).siblings(':checked').length >= genderLimit) {
+		this.checked = false;
+	}
+})
+
 let apiResponse;
 let userSearch;
 let speciesSearch;

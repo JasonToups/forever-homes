@@ -11,6 +11,7 @@ from main_app.views import password_change
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
@@ -28,14 +29,14 @@ def register(request):
             if user is not None:
                 login(request, user)
                 Profile.objects.create(user=user)
-            return redirect('detail_profile')
+            return redirect('intro')
         else:
             return render(request, 'register.html', {'form': form})
     else:
         form = UserCreationForm()
         return render(request, 'register.html', {'form': form})
 
-
+@login_required
 def change_password(request):
 
     if request.method == 'POST':
@@ -52,8 +53,6 @@ def change_password(request):
     return render(request, 'password_change_form.html', {
         'form': form
     })
-
-
 
 def login_view(request):
     if request.method == 'POST':
@@ -75,6 +74,7 @@ def logout_view(request):
     auth.logout(request)
     return redirect('main_feed')
 
+@login_required
 def delete_profile(self):
     self.objects.get(id=pk).delete()
     return redirect('logout_success')

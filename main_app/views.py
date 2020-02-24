@@ -7,13 +7,11 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render, redirect
-
+@login_required
 def password_change(request):
-
     return render(request, 'password_change_form.html')
 
-
+@login_required
 def detail_profile(request):
     user = User.objects.get(user=request.user)
     
@@ -28,16 +26,11 @@ def detail_profile(request):
 
         # return render(request)
 
-
+@login_required
 def password_change_success(request):
     return render(request, 'password_change_success.html')
 
-def index(request):
-    return render(request, 'index.html', {})
-    # return HttpResponse('<h1>Account Homepage!</h1>')
-
 def intro(request):
-    print('intro')
     return render(request, 'intro.html')
 
 def create_profile(request):
@@ -52,10 +45,10 @@ def create_profile(request):
         form = ProfileForm()
         return render(request, 'profile_form.html', {'form':form})
 
-# TODO add the redirect to the main_feed.html
 def main_feed(request):
     return render(request, 'main_feed.html')
 
+@login_required
 def feed_search(request):
     if request.method == 'POST':
             searchUser = request.user
@@ -72,14 +65,13 @@ def feed_search(request):
 # credit to https: // dev-yakuza.github.io/en/django/response-model-to-json/
 def searchinfo(request):
     print(request.user.id)
-    waffle = request.user.id
+    the_user_id = request.user.id
     if request.method == 'GET':
-        userSearch = Search.objects.filter(user_id=waffle)
-        data_list = serializers.serialize('json', userSearch)
+        user_Search = Search.objects.filter(user_id=the_user_id)
+        data_list = serializers.serialize('json', user_Search)
         return HttpResponse(data_list, content_type='text/json-comment-filtered')
 
-# I've added this to make sure a request directs to the detail_profile with the necessary elements:
-
+@login_required
 def detail_profile(request):
     profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
@@ -91,14 +83,14 @@ def detail_profile(request):
         form = ProfileForm(instance=profile)
     return render(request, 'detail_profile.html', {'form': form})
 
-
+@login_required
 def delete_profile(request):
     u = User.objects.get(pk=request.user.id)
     u.is_active = False
     u.save()
-
     return redirect('main_feed')
 
+@login_required
 def logout(request):
     logout(request)
     return render(request, 'logout_success.html')
@@ -108,5 +100,9 @@ def logout_success(request):
         logout_success(request)
         return redirect('/')
 
+@login_required
 def favorites(request):
     return render(request, 'favorites.html')
+
+def about(request):
+    return render(request, 'about.html')
