@@ -61,6 +61,7 @@ def feed_search(request):
             gender = request.POST['type4']
             searchFields = Search(user=searchUser, type=type, coat=coat, color=color, gender=gender)
             searchFields.save()
+            return redirect('main_feed')
     return render(request, 'feedsearch.html')
 
 

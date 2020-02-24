@@ -72,7 +72,7 @@ function populateCoats() {
 		`).addClass('input')
 		for (let i=0; i<apiResponse.type.coats.length; i++) {
 			$('#coatBoxes').append(`
-			<input class="coats-box" type="checkbox" name="type1" value="${apiResponse.type.coats[i]}">
+			<input class="coats-box" type="checkbox" name="type2" value="${apiResponse.type.coats[i]}">
 				<label for="type1">${apiResponse.type.coats[i]}</label><br>
 			`)
 		}
@@ -87,7 +87,7 @@ function populateColors() {
 		<div class="fields" id="colorBoxes"></div>`).addClass('input')
 		for (let i=0; i<apiResponse.type.colors.length; i++) {
 			$('#colorBoxes').append(`
-			<input class="colors-box" type="checkbox" name="type1" value="${apiResponse.type.colors[i]}">
+			<input class="colors-box" type="checkbox" name="type3" value="${apiResponse.type.colors[i]}">
 				<label for="type1">${apiResponse.type.colors[i]}</label><br>
 			`)
 		}
@@ -102,12 +102,12 @@ function populateGender() {
 	`).addClass('input')
 	for (let i = 0; i < apiResponse.type.genders.length; i++) {
 		$('#genderBoxes').append(`
-			<input class="gender-box" type="checkbox" name="type1" value="${apiResponse.type.genders[i]}">
+			<input class="gender-box" type="checkbox" name="type4" value="${apiResponse.type.genders[i]}">
 				<label for="type1">${apiResponse.type.genders[i]}</label><br>
 			`)
 	}
 }
 
-$('#submitSearch').on('click', function(evt) {
-	window.location = 'mainfeed'
-});
+// $('#submitSearch').on('click', function(evt) {
+// 	window.location.href = 'http://localhost:8000/users/mainfeed';
+// });
