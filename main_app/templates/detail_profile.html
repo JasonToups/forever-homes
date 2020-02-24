@@ -1,24 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<<<<<<< HEAD
-<!-- <h1 class="topspace"></h1> -->
-<br/><br/><br/>
-<h2>Profile</h2><br/>
-<h3>Update Your Profile Information:</h3><br/>
-        <form method="POST" action="{% url 'detail_profile'%}">
-                {% csrf_token %}
-                {{ form.as_p }}
-        <input type="submit" value="Save">
-        </form><br/>
-        <a href="{% url 'password_change' %}">Change my password</a><br/>
-        <a href="{% url 'delete_profile' %}">Delete Profile</a>
-=======
->>>>>>> submaster
 
 <div class="container">
 	<div class="headline">
-		<h2 class="headline-text">Profile</h2>
+                <h2 class="headline-text">Profile</h2>
+	</div>
+	<div class="headline">
+                <h3 class="headline-text">Update Your Profile Information:</h3>
 	</div>
 	<div class="input">
 		<div class="fields">
