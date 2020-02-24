@@ -37,9 +37,19 @@ In addition to registering an account, users are asked to create a Profile where
 ![Initial Wireframe](https://lh3.googleusercontent.com/-8ljOop5beU2IJgsiy6Xjb6RP2jemh6xfwFc8GfeBx5zprGbjOHFvuyq3zzetNISRBxsvE2l5YtmJAXTW-XPDUkcmIqw77ZYtosd-cDXu_kXgc94s2vK5xbLHo_hp-7pODJl_BApCG0UpJ8D102KesWAeq-egT-gTS-vPyfdL0AfDD0C1H489DCTvOgOUKZ5KaAF7UVRWmQiDdq3oN_nBYfoN-e7sLxG7WgHfixHxFurPxaFkfphhJhnvBud7vXkXtI4Tj5er_tbkL3BNaF51NVw_Mred2l2ojue52xflSPxDoFYTqIpordIvsVk9qxZvwcJtRv1l7H8fQtTWx2gapLcliPvTsMN-ull4LWzFp-oibIJ1VeEsPWBEUqtL44XQEQusQ3aIucp3bjzD9pzdi6bEQCMPibxW55OMq6MsxZK_Fc4JoQTkS06i1vwD02TsB-bvznx-ZBMMkR7oLrNvTflVMb8e-MBhmJk2nb66X8Ndhpp5_nY1c-KX2B5EMkS5SbobstI39W5FmsrWK0Tg-PGuL3ZFfCFreCu5WFqBkuQIzy0hTMM2EG-4rdyVWP8-aQMW_yFBQ_QyPKb96IRg2vPsotH6qplHOZas_9L8cTs6xauzgkM7nrdQnU036lPjQWGBP2CHkQTb1jQmFnXkW7PH4r_hPlXlY0dYdrrYlRC6JEhi1eTIA=w1018-h1356-no)
 
 ## User Story
+The target user is an individual interested in seeing what pets are available for adoption. They visit Forever Homes, which shows a default feed of adoptable dogs. Without an acccount, the user is able to access the following views in the navigation -- 'Login', 'Pet Feed', 'Register', 'About'.
+
+If the user clicks on 'Search' or 'Favorites' within the site navigation without an account, they are prompted to register an account. If their registration is successful, they are brought to an introductory page which informs them that they still need to complete a profile to continue. A call to action button brings them to the profile page. Once the profile form is submitted, it redirects to the Pet Feed homepage. A logged in user can now access an views in the application navigation.
+
+If a user is interseted in a pet in the feed, they can first click on the card which expands to fully display all information. For ease of user use, the initial post view keeps things more simple. There are two buttons on each post, a button that links to the external site where they can apply to adopt said pet and a favorites button. Clicking the favorites button adds it to the user's "Favorites", which they can access (and edit which posts are favorites) throught the application navigation.
 
 ## Looking Ahead
-
+- Optional Search Parameters 
+- Search by current location
+- Save favorite pets to database
+- About Page
+- Load more pets
+- Include breeds in search options
 
 ## Contributors
 • Jason Toups / Web Developer - [Github](https://github.com/jasonToups)
