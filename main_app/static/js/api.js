@@ -107,7 +107,7 @@ function filterPhotos () {
     }
   }
   user.pets.animals = array;
-  console.log(user.pets);
+  // console.log(user.pets);
   createFeed(user.pets.animals, "main");
 }
 
@@ -115,21 +115,38 @@ function filterPhotos () {
 // Pass in a param, to use for both Main Feed & Favorites Feed
 function createFeed (array, feedType) {
   $('.post').remove();
-  if (!array) {
-    let template = `
+  console.log(array);
+  if (!array | array.length === 0) {
+    console.log('no array')
+    let templateSearch = `
+    <div class="headline">
+      <h2 class="headline-text">Try Again!</h2>
+    </div>
+    <div class="input center-text">
+      <p>Your search returned no pets.</p>
+      <p>Update your search filter and try again.</p>
+    </div>
+    <div class="button">
+      <a href="/users/feedsearch" class="submit">Search</a>
+    </div>
+    `
+    let templateFavorites = `
       <div class="headline">
-        <h2 class="headline-text">Try Again!</h2>
+        <h2 class="headline-text">You have no favorites!</h2>
       </div>
       <div class="input center-text">
-        <p>Your search returned no pets.</p>
-        <p>Update your search filter and try again.</p>
+        <p>Go back to the Pet Feed to find some favorite pets.</p>
       </div>
       <div class="button">
-        <a href="/users/feedsearch" class="submit">Search</a>
+        <a href="/users/mainfeed" class="submit">Pet Feed</a>
       </div>
     `
-    $('.container').prepend(template);
-  } else {
+    if (feedType === "main") {
+      $('.container').prepend(templateSearch);
+    } else if (feedType ==="favorites"){
+      $('.container').prepend(templateFavorites);
+    }
+    } else {
     for (i = 0; i < array.length; i++){
       let name = array[i].name;
       let image = array[i].photos[0].large;
@@ -180,7 +197,7 @@ function startClickListener() {
     // to show and hide the detail of the post
     $(".post").click(function(event){
       const detail = $(event.target).closest('.post').children('.post-content').children('.post-detail')[0];
-      console.log(detail)
+      // console.log(detail)
       $(detail).toggleClass('show');
     });
     // to favorite pets in the feed
@@ -188,11 +205,11 @@ function startClickListener() {
     $(".favorite").click(function(event){
       console.log('You found a favorite pet!');
       const detail = $(event.target).closest('.post').children('.post-image').children('.pet-picture')[0].src;
-      console.log(detail)
+      // console.log(detail)
       // saving the url to the user object to look up the pet object id from the user.pets
       user.favoriteImage = detail;
       // TODO wrap getFavorite in an if/else statement to update the event.target.src
-      console.log(event.target.src)
+      // console.log(event.target.src)
       // if getFavorite returns false, make the heart icon empty.
       // if getFavorite returns true, make the heart icon filled.
       if (getFavorite(user.pets.animals, user.favoriteImage)) {
@@ -217,7 +234,7 @@ function getFavorite(object, value){
       console.log('that pet is already a favorite')
       user.favoriteDogObject.splice(j, 1)
       console.log('removing favorite')
-      console.log(user.favoriteDogObject)
+      // console.log(user.favoriteDogObject)
       return (false)
     }
   }
@@ -230,7 +247,7 @@ function getFavorite(object, value){
       return(true)
     }
   }
-  console.log(user.favoriteDogObject);
+  // console.log(user.favoriteDogObject);
 }
 
 function showFavorites(){
