@@ -7,11 +7,17 @@
 {% block content %}
 
 <div class="container">
-	<nav>
-		<h1>We'll guide you through the necessary steps to adopt your future pet!</h1>
-		<!-- Make my username and favorite pet in the create_profile -->
-		<a href="/users/createprofile">Create my profile</a>
-	</nav>
+	<div class="headline">
+		<div class="headline-text">
+			<h3>We'll guide you through the next steps to adopt your future pet!<br/> Click below.</h3>
+		</div>
+	</div>
+	<div class="input">
+		<p>Of the approximately 7.6 million companion animals entering animal shelters nationwide every year, approximately 2.7 million are euthanized. Thank you for being interested in adopting!</p>
+	</div>
+	<div class="button">
+		<a href="/users/createprofile"><button class="submit" type="submit">Create Profile</button></a>
+	</div>
 </div>
 
 {% endblock %}
