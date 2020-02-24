@@ -103,3 +103,6 @@ def logout_success(request):
 @login_required
 def favorites(request):
     return render(request, 'favorites.html')
+
+def about(request):
+    return render(request, 'about.html')

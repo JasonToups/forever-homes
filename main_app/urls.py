@@ -10,11 +10,7 @@ urlpatterns = [
 
     path('users/delete', views.delete_profile, name='delete_profile'),
 
-
-
     path('users/createprofile/', views.create_profile, name='create_profile'),
-
-
 
     path('users/feedsearch', views.feed_search, name='feed_search'),
 
@@ -25,5 +21,7 @@ urlpatterns = [
     path('users/logoutsuccess', views.logout_success, name='logout_success'),
 
     path('users/favorites', views.favorites, name='favorites'),
+
+    path('about/', views.about, name='about'),
 ]
 
