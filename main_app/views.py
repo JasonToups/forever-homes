@@ -3,38 +3,42 @@ from django.http import HttpResponse, JsonResponse
 from .forms import ProfileForm
 from .models import Profile, Favorites, Search
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, redirect
 
+def password_change(request):
 
-# adds these for user delete functionality:  
-# from .forms import UserDeleteForm
-# from django.contrib.auth.decorators import login_required
-# from django.shortcuts import render, redirect
-# from django.contrib import messages
+    return render(request, 'password_change_form.html')
 
 
+def detail_profile(request):
+    user = User.objects.get(user=request.user)
+    
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            profile.save()
+            return render(request, 'detail_profile.html', {'form': form})
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'detail_profile.html', {'form': form})
+
+        # return render(request)
 
 
-# from .forms import LoginFormpi
+def password_change_success(request):
+    return render(request, 'password_change_success.html')
 
-# from django.contrib
-
-
-# taking a web request and returns a web response.
-# fetch objects from database
-# modify those objects
-# render forms
-# return HTML
+def index(request):
+    return render(request, 'index.html', {})
+    # return HttpResponse('<h1>Account Homepage!</h1>')
 
 def intro(request):
     print('intro')
     return render(request, 'intro.html')
-
-    # return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
-    # return HttpResponse('<h1>Intro (Between Create Account and Profile)!</h1>')
 
 def create_profile(request):
     if request.method == 'POST':
@@ -76,7 +80,6 @@ def searchinfo(request):
 
 # I've added this to make sure a request directs to the detail_profile with the necessary elements:
 
-
 def detail_profile(request):
     profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
@@ -87,6 +90,7 @@ def detail_profile(request):
     else:
         form = ProfileForm(instance=profile)
     return render(request, 'detail_profile.html', {'form': form})
+
 
 def delete_profile(request):
     u = User.objects.get(pk=request.user.id)
@@ -104,14 +108,5 @@ def logout_success(request):
         logout_success(request)
         return redirect('/')
 
-# from cat-collectr
-def profile(request, username):
-        user = User.objects.get(username=username)
-
-        # cats= Cat.objects.filter(user=user)
-        return render(request, 'profile.html', {'username': username})
-        # return render(request, 'profile.html', {'username': username, 'cats': cats})
-
 def favorites(request):
     return render(request, 'favorites.html')
-

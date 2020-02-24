@@ -3,16 +3,19 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import auth
 from main_app.models import Profile
 from main_app.views import detail_profile
+from main_app.views import password_change
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 # it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
     return HttpResponse('<h1>Homepage!</h1>')
 
-
-    # return render(request, 'index')
 
 def register(request):
     if request.method == 'POST':
@@ -31,6 +34,26 @@ def register(request):
     else:
         form = UserCreationForm()
         return render(request, 'register.html', {'form': form})
+
+
+def change_password(request):
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('main_feed')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user, request.POST)
+    return render(request, 'password_change_form.html', {
+        'form': form
+    })
+
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -52,27 +75,6 @@ def logout_view(request):
     auth.logout(request)
     return redirect('main_feed')
 
-# https://codereview.stackexchange.com/questions/212988/django-delete-user-from-userprofile
-# https://git.generalassemb.ly/sf-sei-7/django-views-and-templates
-
 def delete_profile(self):
     self.objects.get(id=pk).delete()
     return redirect('logout_success')
-
-# could this work?  
-# def delete_user(self):
-#     self.User.delete()
-
-
-
-
-# scratching the below features:  
-# https://stackoverflow.com/questions/45780470/django-registration-how-to-allow-user-delete-their-account?rq=1
-
-
-
-
-# using allauth in Django:  
-# https://stackoverflow.com/questions/38047408/how-to-allow-user-to-delete-account-in-django-allauth
-# installation instructions for allauth:  https://django-allauth.readthedocs.io/en/latest/installation.html
-
