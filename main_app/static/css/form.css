@@ -108,6 +108,21 @@ label {
   background-color: var(--quaternary-color);  
 }
 
+/* ------ Update Profile */
+#id_old_password {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_new_password1 {
+  width: 95%;
+  font-size: 15px;
+}
+#id_new_password2 {
+  width: 95%;
+  font-size: 15px;
+}
+
 
 /* button */
 .submit {
