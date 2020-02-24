@@ -5,3 +5,7 @@ img {
 .container {
     text-align: center;
 }
+
+.headshot {
+    border-radius: 20px;
+}
