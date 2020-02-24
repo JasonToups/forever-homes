@@ -1,0 +1,78 @@
+/* -------------- Pet Feed  -------------- */
+#list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .post {
+  
+} */
+
+/* The image for a post */
+.pet-picture {
+  width: var(--content-width);
+  border-radius: 20px 20px 0px 0px;
+}
+
+/* The header and detail cards for a post */
+.post-content{
+  background-color: white;
+  width: var(--content-width);
+  border-radius: 0px 0px 20px 20px;
+  margin-bottom: 15px;
+}
+
+.post-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h2 {
+  font-size: 30;
+  font-family: 'Suez One', serif;
+  margin: 0;
+}
+.post-name {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-grow: 1;
+}
+
+.favorite {
+  height: 23px;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.post-detail {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  height: 0;
+}
+
+.pet-detail{
+  margin: 5 5 5 5;
+  font-family: 'Overpass', sans-serif;
+}
+
+.show {
+  height: max-content;
+}
+
+/* Adoption Button */
+.adopt {
+  font-family: 'Suez One', serif;
+  font-size: 20;
+  color: var(--text-primary-color);
+  background-color: var(--button-color-active);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+}

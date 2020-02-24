@@ -1,0 +1,135 @@
+/* ------- GLOBAL FORM STYLING */
+.headline {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline-text {
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.fields {
+  margin-left: 15px;
+}
+
+
+.container p {
+  margin-bottom: 5px;
+}
+
+.container ul {
+  font-size: .85em;
+  padding-left: 30px;
+}
+
+/* ------- SEARCH */
+
+#submitSearch {
+  margin-bottom: 10px;
+}
+
+.checked-boxes {
+  padding-left: 40px;
+}
+
+label {
+  font-size: 17px;
+}
+
+#searchSpecies {
+  background-color: var(--secondary-color);
+}
+#searchCoats {
+  background-color: var(--tertiary-color);
+}
+#searchColors {
+  background-color: var(--quaternary-color);
+}
+#searchGenders {
+  background-color: var(--quinary-color);
+}
+
+/* ------- LOGIN */
+
+#id_username {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_password {
+  width: 95%;
+  font-size: 15px;
+}
+
+/* ------- SIGNUP */
+.helptext{
+  font-size: .85em;
+  margin-left: 15px;
+}
+
+#id_password1 {
+  width: 95%;
+  font-size: 15px;
+}
+#id_password2 {
+  width: 95%;
+  font-size: 15px;
+}
+
+
+/* ------ Profile */
+#id_first_name {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_last_name {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_email {
+  width: 95%;
+  font-size: 15px;
+}
+
+#profile-buttons{
+  background-color: var(--secondary-color);
+}
+
+#change-password{
+  background-color: var(--quinary-color);  
+}
+#delete-profile{
+  background-color: var(--quaternary-color);  
+}
+
+/* ------ Update Profile */
+#id_old_password {
+  width: 95%;
+  font-size: 15px;
+}
+
+#id_new_password1 {
+  width: 95%;
+  font-size: 15px;
+}
+#id_new_password2 {
+  width: 95%;
+  font-size: 15px;
+}
+
+
+/* button */
+.submit {
+  font-family: 'Suez One', serif;
+  font-size: 20;
+  color: var(--text-primary-color);
+  background-color: var(--button-color-active);
+  border-radius: 20px;
+  padding: 5px 15px;
+}

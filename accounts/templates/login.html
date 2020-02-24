@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="login" class="container">
+	<div class="login headline">
+		<h2 class="headline-text">Login</h2>
+	</div>
+	<div class="input">
+		<div class="fields">
+				{% if error %}
+					<h2>{{error}}</h2>
+				{% endif %}
+			<form method="POST" action=".">
+				{% csrf_token %}
+				{{ form.as_p }}
+		</div>
+	</div>
+</div>
+<div class="button">
+	<input class="submit" type="submit" value="Login">
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+	<div class="headline">
+		<h2 class="headline-text">Register</h2>
+	</div>
+	<div class="headline">
+		<h4 class="headline-text">Already have an account?</h4>
+	</div>
+	<div class="button">
+		<a id="change-password" class="submit" href="{% url 'login' %}">Click To Login</a>
+	</div>
+	<br/>
+	<div class="input">
+		<div class="fields">
+			<form method="POST" action="{% url 'register' %}">
+				{% csrf_token %}
+				{{ form.as_p }}
+		</div>
+	</div>
+</div>
+<div class="button">
+	<input class="submit" type="submit" value="Register">
+</form>
+</div>
+
+{% endblock %}

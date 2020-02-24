@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div id="searchForm" class="container">
+		<form METHOD="POST" action="">
+			{% csrf_token %}
+			<div id="search" class="headline">
+				<h1 class="headline-text">Find a Pet</h1>
+			</div>
+			<div id="searchSpecies" class="input">
+				<h3>Select A Single Species:</h3>
+				<div class="fields">
+					<input class="checked-box" type="checkbox" name="type1" value="dog">
+					<label for="type1">Dog</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="cat">
+					<label for="type1">Cat</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="rabbit">
+					<label for="type1">Rabbit</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="small & furry">
+					<label for="type1">Small & Furry</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="Horse">
+					<label for="type1">Horse</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="Bird">
+					<label for="type1">Bird</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="scales, fins & other">
+					<label for="type1">Scales, Fins & Other</label><br>
+					<input class="checked-box" type="checkbox" name="type1" value="barnyard">
+					<label for="type1">Barnyard</label><br>
+				</div>
+			</div>
+		<div id="searchCoats"></div>
+		<div id="searchColors"></div>
+		<div id="searchGenders"></div>
+		{% comment %} <div class="button">
+			<input id="submitSearch" class="submit" type="submit" value="Search">
+		</div> {% endcomment %}
+		</form>
+	</div>
+
+{% endblock %}
