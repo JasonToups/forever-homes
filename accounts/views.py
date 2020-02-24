@@ -10,16 +10,18 @@ from main_app.views import detail_profile
 from main_app.views import password_change
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
+from django.contrib import messages
+
 
 
 # it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
     return HttpResponse('<h1>Homepage!</h1>')
 
-def password_change(request):
-    u = User.objects.get(username='john')
-    u.set_password('new password')
-    u.save()
+# def password_change(request):
+#     u = User.objects.get(username='john')
+#     u.set_password('new password')
+#     u.save()
 
 def register(request):
     if request.method == 'POST':
@@ -38,6 +40,63 @@ def register(request):
     else:
         form = UserCreationForm()
         return render(request, 'register.html', {'form': form})
+
+
+def change_password(request):
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('main_feed')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user, request.POST)
+    return render(request, 'password_change_form.html', {
+        'form': form
+    })
+
+
+# def change_password(request):
+
+#     if request.method == 'POST':
+#         form = PasswordChangeForm(request.user, request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             update_session_auth_hash(request, user)  # Important!
+#             # messages.success(request, 'Your password was successfully updated!')
+#             return redirect('detail_profile')
+#         else:
+#             messages.error(request, 'Please correct the error below.')
+#     else:
+#         form = PasswordChangeForm(request.user)
+#     return render(request, 'password_change_form.html', {
+#         'form': form
+#     })
+
+    # if request.method == 'POST':
+    #     if form.is_valid():
+    #         form.save()
+    #         # u = form.cleaned_data['username']
+    #         p = form.cleaned_data['password1']
+       
+        
+    #     u = User.objects.get(username='gooose12')
+    #     # pdb.set_trace()
+    #     u.set_password('123456789')
+    #     u.save()
+    #         # user = authenticate(username = u, password = p)
+    #         # if user is not None:
+    #         #     login(request, user)
+    #         #     Profile.objects.create(user=user)
+    #     return redirect('detail_profile')
+    #     # else:
+    #     #     return render(request, 'register.html', {'form': form})
+    # else:
+    #     return render(request, 'password_change_form.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -63,3 +122,13 @@ def delete_profile(self):
     self.objects.get(id=pk).delete()
     return redirect('logout_success')
 
+
+# notes:
+ # import pdb
+  # pdb.set_trace()
+
+
+        # u = User.objects.get(username='gooose12')
+        # # pdb.set_trace()
+        # u.set_password('123456789')
+        # u.save()
