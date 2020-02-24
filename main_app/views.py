@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import ProfileForm
-from .models import Profile, Favorites
+from .models import Profile, Favorites, Search
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
+from django.core import serializers
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, redirect
 
@@ -55,8 +57,26 @@ def main_feed(request):
     return render(request, 'main_feed.html')
 
 def feed_search(request):
+    if request.method == 'POST':
+            searchUser = request.user
+            type = request.POST['type1']
+            coat = request.POST.get('type2', False)
+            color = request.POST['type3']
+            gender = request.POST['type4']
+            searchFields = Search(user=searchUser, type=type, coat=coat, color=color, gender=gender)
+            searchFields.save()
+            return redirect('main_feed')
     return render(request, 'feedsearch.html')
 
+
+# credit to https: // dev-yakuza.github.io/en/django/response-model-to-json/
+def searchinfo(request):
+    print(request.user.id)
+    waffle = request.user.id
+    if request.method == 'GET':
+        userSearch = Search.objects.filter(user_id=waffle)
+        data_list = serializers.serialize('json', userSearch)
+        return HttpResponse(data_list, content_type='text/json-comment-filtered')
 
 # I've added this to make sure a request directs to the detail_profile with the necessary elements:
 

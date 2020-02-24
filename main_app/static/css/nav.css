@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -43,6 +44,10 @@ body {
   padding: 10px;
 }
 
+.center-text{
+  text-align: center;
+}
+
 .button{
   display: flex;
   flex-direction: row;
@@ -65,7 +70,7 @@ body {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: absolute;}
+  .topnav.responsive {position: fixed;}
   .topnav.responsive a.icon {
     position: fixed;
     right: 0;
@@ -153,7 +158,6 @@ body {
 h1 {
   margin-bottom: 0px;
   display: flex;
-  position: relative;
 }
 
 .header {
