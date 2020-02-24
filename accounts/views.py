@@ -12,8 +12,6 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-
-
 # it's strange that when I delete this that the homepage stops working, but the httpResponse isn't connected to the homepage. Why is this?
 def index(request):
     return HttpResponse('<h1>Homepage!</h1>')
