@@ -17,7 +17,7 @@ Vistors are able to see a default feed of adoptable pets when they arrive at the
 - sqlparse
 
 #### Third-Party APIs
-- PetFinder
+- [PetFinder](https://www.petfinder.com/developers/v2/docs/)
 
 ## Existing Features
 
