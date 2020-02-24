@@ -62,13 +62,12 @@ body {
   position: fixed;
   left: 5;
   bottom: 0;
-  color: rgba(119, 136, 153, 0.5);
+  color: rgba(67, 80, 92, 0.5);
   font-weight: .5em;
 }
 
 #petfinder-link {
-  color: lightslategray;
-  color: rgba(119, 136, 153, 0.5);
+  color:  rgba(67, 80, 92, 0.5);
 }
 
 /* Media Queries for Responsive Nav */
