@@ -61,7 +61,7 @@ const onSuccessToken = response => {
   user.token = response;
   $.ajax({
     method: 'GET',
-    url: 'searchinfo',
+    url: 'users/searchinfo',
     success: searchSuccess,
     error: err => console.log(err),
   });

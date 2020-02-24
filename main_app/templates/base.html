@@ -24,7 +24,7 @@
 	<div class="topnav" id="myTopnav">
 		<h1>
 			<img class="logo" src="{% static "images/logo-white.svg" %}">
-			<a class="header active" href="/users/mainfeed">Forever Homes</a>
+			<a class="header active" href="/">Forever Homes</a>
 		</h1>
 		<!-- Navigation links (hidden by default) -->
 		<div id="myLinks">
@@ -34,12 +34,14 @@
 				<a class="menu" id="favorites" href="#">Favorites</a>
 				<a class="menu" href="/users/profile">My Profile</a>
 				<a class="menu" href="{% url 'logout' %}">Logout</a>
+				<a class="menu" href="/about">About</a>
 			{% else %}
 				<a class="menu" href="{% url 'login' %}">Login</a>
-				<a class="menu" href="/users/mainfeed">Pet Feed</a>
+				<a class="menu" href="/">Pet Feed</a>
 				<a class="menu" href="/users/feedsearch">Search</a>
 				<a class="menu" id="favorites" href="#">Favorites</a>
 				<a class="menu" href="/accounts/register">Register</a>
+				<a class="menu" href="/about">About</a>
 			{% endif %}
 		</div>
 		<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
