@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="49px" viewBox="0 0 49 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>heart-favorite-filled-white</title>
+    <desc>Created with Sketch.</desc>
+    <g id="heart-favorite-filled-white" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="final-logo-unflattened" transform="translate(3.000000, 0.904219)"></g>
+        <g id="heart-favorite-filled" transform="translate(2.000000, 15.000000)" fill="#F9F9F9" stroke="#FFFFFF" stroke-width="2">
+            <path d="M22.5219207,1.81644526 C17.3485132,-2.32072008 12,1.36350813 12,5.35759141 C12,9.35167468 22.5219207,18.1868933 22.5219207,18.1868933 L23.3206012,17.4932526 C25.7682652,15.3318962 33,8.66611836 33,5.35759141 C33,1.37510526 27.6939982,-2.32072005 22.5219207,1.81644526 Z" id="Heart-Copy" fill-rule="nonzero"></path>
+            <path d="M12.691358,6.55 L4.34567901,4.15 M15,11.0957807 L4.34567901,13.75 M14,9.09578072 L0,9.09578072" id="Combined-Shape" stroke-linecap="round"></path>
+            <path d="M42.345679,6.55 L34,4.15 M44.654321,11.0957807 L34,13.75 M43.654321,9.09578072 L29.654321,9.09578072" id="Combined-Shape" stroke-linecap="round" transform="translate(37.327160, 8.950000) scale(-1, 1) translate(-37.327160, -8.950000) "></path>
+        </g>
+    </g>
+</svg>
