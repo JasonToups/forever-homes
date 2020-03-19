@@ -1,1 +1,1 @@
-web: gunicorn {forever-homes}.wsgi --log-file -
+web: gunicorn {django_foreverhomes}.wsgi --log-file -
