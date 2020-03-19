@@ -1,0 +1,1 @@
+web: gunicorn {forever-homes}.wsgi --log-file -
